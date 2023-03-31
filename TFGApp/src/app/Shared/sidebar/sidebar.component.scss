@@ -1,0 +1,30 @@
+.sidebarContainer{
+    height: 100%;
+    width: 90%;
+    background:lightblue;
+    .router-button{
+        margin-bottom:50px;
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+        .icon{
+            margin-left:30px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    :hover{
+        background: lightgreen;
+    }  
+}
+.tosee{
+    .iconToSidebar{
+
+    }
+}
+.sidebar{
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
