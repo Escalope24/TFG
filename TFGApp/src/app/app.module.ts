@@ -6,20 +6,19 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './Shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPageModule,} from './MainPage/mainPage.module';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { HomeModule } from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    MainPageModule
+    MainPageModule,
+    HomeModule
   ],
   bootstrap: [AppComponent]
 })
