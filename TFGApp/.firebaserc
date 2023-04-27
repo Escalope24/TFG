@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ahorapp-8507b"
+  },
+  "targets": {
+    "ahorapp-8507b": {
+      "hosting": {
+        "TFGApp": [
+          "ahorapp-8507b"
+        ]
+      }
+    }
+  }
+}

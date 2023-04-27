@@ -99,6 +99,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "TFGApp:build:production",
+            "firebaseProject": "ahorapp-8507b",
+            "firebaseHostingSite": "ahorapp-8507b"
+          }
         }
       }
     }
