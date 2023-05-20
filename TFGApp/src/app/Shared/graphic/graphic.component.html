@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="legend" *ngFor="let index of data">
+        <span>{{index.name}} {{getPercent(index)}}</span>
+    </div>
+    <div class="graphic">
+        <ngx-charts-advanced-pie-chart [view]="view" [results]="results" [animations]="true" [gradient]="true" [scheme]="'fire'" ></ngx-charts-advanced-pie-chart>
+
+    </div>
+</div>

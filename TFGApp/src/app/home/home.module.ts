@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { RouterModule } from '@angular/router';
+import { CONSTANTS } from '../Routes/routes';
+import { SharedModule } from '../Shared/shared.module';
 
 
-
+// TODO RECORDAR QUE LA INTRODUCCION A LA HOME YA DEBE DE SER CON UNA CUENTA LOGEADA
 @NgModule({
   declarations: [
     HomeComponent,
-    LoginComponent,
-    RegisterComponent
   ],
   imports: [
-    CommonModule
-  ],
-  exports:[
-    HomeComponent
+    CommonModule,
+    RouterModule.forChild([
+      {path:CONSTANTS.ROUTES.MENU.HOME, component:HomeComponent},
+    ]),
+    SharedModule
   ]
 })
 export class HomeModule { }
