@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataGraphic } from '../Interfaces/graphic';
 import { Color } from 'chart.js';
-import { ScaleLinear, ScalePoint, ScaleTime } from 'd3-scale';
-
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
