@@ -1,1 +1,18 @@
-<p>register works!</p>
+<div class="container">
+  <div class="welcomeText">
+    <h1>Bienvenidos a AhorraApp</h1>
+</div>
+<div class="imgTheme">
+    <img src="../../../assets/Imagenes/cerdito.png">
+</div>
+  <form [formGroup]="formReg" (ngSubmit)="createUser()">
+        <input type="text" formControlName="email" class="textInput" [placeholder]="'CORREO'">
+      <br>
+        <input type="password" formControlName="password" class="textInput" [placeholder]="'CONTRASEÑA'">
+      <br>
+      <br>
+      <div class="buttonContainer">
+        <button mat-raised-button color="warn"type="submit" >Registrarse</button>
+      </div>
+    </form>
+</div>

@@ -1,10 +1,15 @@
 <div class="container">
-    <div class="row">
-        <div class="goToLogin">
-
-        </div>
-        <div class="goToRegister" ()>
-
-        </div>
+    <div class="welcomeText">
+        <h1>Bienvenidos a AhorraApp</h1>
+    </div>
+    <div class="imgTheme">
+        <img src="../../../assets/Imagenes/cerdito.png">
+    </div>
+    <div class="googleContainer">
+        <button mat-raised-button color="primary" (click)="signInWithGoogle()">Unirse con google</button>
+    </div>
+    <div class="buttonContainer">
+        <button mat-raised-button color="warn" (click)="goToLogin()">Ir a login</button>
+        <button mat-raised-button color="warn" (click)="goToRegister()">Ir a Register</button>
     </div>
 </div>

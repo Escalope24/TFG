@@ -1,0 +1,43 @@
+::-webkit-input-placeholder {
+    color: white;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+
+.container{
+    display: flex;
+    justify-content: center;
+    background: black;
+    height: 100%;
+    .welcomeText{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        h1{
+            text-align: center;
+            color:coral;
+            font-size: 60px;
+        }
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        input{
+            width: 600px;
+            height: 50px;
+            color: white;
+            padding-left: 20px;
+            font-size: 20px;
+            background: coral;
+            border-radius: 16px;
+        }
+    }
+    .buttonContainer{
+        display:flex;
+        button{
+            width: 100%;
+            border-radius: 8px;
+        }
+    }
+}

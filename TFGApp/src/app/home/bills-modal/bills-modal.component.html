@@ -1,0 +1,39 @@
+<div class="modalContainer">
+    <div class="headerModal">
+        
+    </div>
+    <div class="tableContainer">
+        <table mat-table [dataSource]="mockData">
+
+            <ng-container matColumnDef *ngFor="let element of mockData.headers">
+                <th mat-header-cell *matHeaderCellDef>{{element}}</th>
+                <td mat-cell *matCellDef="let element" >
+
+                </td>
+              </ng-container>
+            
+
+            
+              <!-- Otras columnas aquí -->
+            
+              <!-- Encabezados de columna -->
+              <tr mat-header-row *matHeaderRowDef="mockData.headers"></tr>
+            
+              <!-- Filas de datos -->
+              <tr mat-row *matRowDef="let row; columns: mockData.headers;"></tr>
+        </table>
+
+    </div>
+    <div class="container">
+        <input type="text" [placeholder]="'Introduce tu gasto'">
+        <button mat-raised-button color="primary">Enviar gasto</button>
+    </div>
+
+<!--     
+        <table mat-table [dataSource]="">
+
+
+        </table> -->
+
+</div>
+    

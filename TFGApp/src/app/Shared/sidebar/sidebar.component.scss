@@ -1,6 +1,9 @@
+:host{
+    width: 200px;
+}
 .sidebarContainer{
     height: 100%;
-    width: 90%;
+    width: auto;
     background:lightblue;
     .router-button{
         margin-bottom:50px;

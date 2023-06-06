@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderAppComponent } from './header-app/header-app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -11,12 +10,16 @@ import { ScaleLinear, ScaleBand } from 'd3-scale';
 import { D3ScaleModule } from '../d3-scale/d3-scale.module';
 import { D3SelectionModule } from '../d3-selection/d3-selection.module';
 import { D3ShapeModule } from '../d3-shape/d3-shape.module';
+import { HeaderComponent } from './header/header.component';
+import { TableComponent } from './table/table.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
-    HeaderAppComponent,
     SidebarComponent,
     GraphicComponent,
+    HeaderComponent,
+    TableComponent,
   ],
   imports: [
     MatIconModule,
@@ -25,15 +28,13 @@ import { D3ShapeModule } from '../d3-shape/d3-shape.module';
     NgxChartsModule,
     D3ScaleModule,
     D3SelectionModule,
-    D3ShapeModule
-    
-    
+    D3ShapeModule,
+    MatTableModule
   ],
   exports:[
-    HeaderAppComponent,
     SidebarComponent,
-    GraphicComponent,
-    
+    HeaderComponent,
+    GraphicComponent
   ],
 })
 export class SharedModule {

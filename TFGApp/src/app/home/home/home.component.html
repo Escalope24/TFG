@@ -1,6 +1,20 @@
 <div class="container">
-    
-    <div class="graphics">
-        <app-graphic [data]="mockArray"></app-graphic>
+    <div class="userContainer">
+        
     </div>
+        <app-graphic [data]="mockArray"></app-graphic>
+</div>
+<div class="buttonsContainer">
+    <button mat-flat-button color="primary" (click)="openModal('a')">
+        Introducir gasto
+    </button>
+    <button mat-flat-button color="primary">
+        Introducir ingreso
+    </button>
+</div>
+<div class="historicalBills">
+    <app-historical-bills></app-historical-bills>
+</div>
+<div class="logOut">
+    <button (click)="logOut()">Log Out</button>
 </div>

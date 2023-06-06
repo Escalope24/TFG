@@ -8,12 +8,12 @@ export const CONSTANTS=Object.freeze({
     },
     ROUTES:{
         USER:{
-            HOME:'wall',
+            USERMENU:'',
             LOGIN:'login',
             REGISTER:'register',
         },
         MENU:{
-            HOME:'',
+            HOME:'home',
     
         },
         BILLS:{

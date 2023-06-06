@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: black;
+    height: 100%;
+    .welcomeText{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        h1{
+            text-align: center;
+            color:coral;
+            font-size: 60px;
+        }
+    }
+    .buttonContainer{
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        button{
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 150px;
+        }
+    }
+}

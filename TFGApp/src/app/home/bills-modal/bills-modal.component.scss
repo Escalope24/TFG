@@ -1,0 +1,17 @@
+.modalContainer{
+    background: white;
+    height: 100%;
+    .tableContainer{
+        display: flex;
+        justify-content: center;
+        max-height: 1000px;
+    }
+    .container{
+        width: 400px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;   
+    
+    }
+}

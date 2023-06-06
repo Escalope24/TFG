@@ -13,6 +13,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AppRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
+import { UserModule } from './User/user.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     SharedModule,
     HomeModule,
+    UserModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
