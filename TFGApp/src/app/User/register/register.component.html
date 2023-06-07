@@ -8,6 +8,8 @@
   <form [formGroup]="formReg" (ngSubmit)="createUser()">
         <input type="text" formControlName="email" class="textInput" [placeholder]="'CORREO'">
       <br>
+      <input type="text" formControlName="username" class="textInput" [placeholder]="'Nombre de usuario'">
+      <br>
         <input type="password" formControlName="password" class="textInput" [placeholder]="'CONTRASEÑA'">
       <br>
       <br>

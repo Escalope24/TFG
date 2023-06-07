@@ -12,8 +12,10 @@ import { CONSTANTS } from 'src/app/Routes/routes';
 export class RegisterComponent implements OnInit {
   formReg:FormGroup=new FormGroup({
     email:new FormControl(),
+    username:new FormControl(),
     password:new FormControl()
   })
+  user:any;
   constructor(private _userService:UserServiceService, private _router:Router){}
   get CONSTANTS(){
     return CONSTANTS;
@@ -22,8 +24,15 @@ export class RegisterComponent implements OnInit {
   
   }
 
+  
   createUser(){
-    this._userService.register(this.formReg.value).then(()=>{
+    this.user=this.formReg.value;
+    let userDB:any={
+      email:this.user.email,
+      password:this.user.password
+    }
+    this._userService.register(userDB).then((resp)=>{
+      this._insertUser(resp);
       this._goToApp()
     }).catch(error=>console.log(error));
   }
@@ -31,5 +40,14 @@ export class RegisterComponent implements OnInit {
   private _goToApp(){[
     this._router.navigate([CONSTANTS.ROUTES.MENU.HOME])
   ]}
+  private _insertUser(idu:any){
+    let userDb:any={
+      id:idu.user.uid,
+      userName:this.user.username,
+      email:this.user.email,
+      password:this.user.password
+    }
+    this._userService.insertUserDB(userDb)
+  }
 
 }
