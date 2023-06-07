@@ -28,6 +28,9 @@ export const CONSTANTS=Object.freeze({
             PROGRESS:'/objective/progress',
             HISTORICAL:'/objective/historical',
         },
+        SHARED:{
+            USER_INFO:"user/info"
+        }
     },
     MODULE:{
         USER_MODULE:'../app/User/user.module'

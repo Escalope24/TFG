@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider  } from '@angular/fire/auth';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,12 @@ export class UserServiceService {
   logInGoogle(){
     return signInWithPopup(this._auth, new GoogleAuthProvider())
   }
-  getUser(){
-
-  }
   insertUserDB(user:any){
     const db=collection(this._firestore,'user')
     return addDoc(db,user);
+  }
+  getUserFromDB():Observable<any[]>{
+    const db=collection(this._firestore,'user')
+    return collectionData(db, {idField:'id'}) as Observable<any[]>
   }
 }

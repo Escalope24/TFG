@@ -14,7 +14,7 @@ export class GraphicComponent implements OnInit {
   colorScheme = [{
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   }];
-  scheme:string[]=['#5AA454','#A10A28','#C7B42C','#AAAAAA']
+  scheme:string[]=['#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF']
   sum:number = 0;
   ngOnInit(): void {
     this.getAllData();

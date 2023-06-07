@@ -18,5 +18,4 @@ getBills():Observable<BillsData[]>{
   const billPlace=collection(this._firestore,'bill')
     return collectionData(billPlace, { idField: 'userId' })  as Observable<BillsData[]>;
   }
-  
 }

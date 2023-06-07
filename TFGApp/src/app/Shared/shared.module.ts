@@ -13,6 +13,9 @@ import { D3ShapeModule } from '../d3-shape/d3-shape.module';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 import {MatTableModule} from '@angular/material/table';
+import { UserdataComponent } from './userdata/userdata.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import {MatTableModule} from '@angular/material/table';
     GraphicComponent,
     HeaderComponent,
     TableComponent,
+    UserdataComponent,
+    UserInfoComponent,
   ],
   imports: [
     MatIconModule,
@@ -29,13 +34,14 @@ import {MatTableModule} from '@angular/material/table';
     D3ScaleModule,
     D3SelectionModule,
     D3ShapeModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   exports:[
     SidebarComponent,
     HeaderComponent,
-    GraphicComponent
-  ],
+    GraphicComponent,
+    UserdataComponent],
 })
 export class SharedModule {
  }

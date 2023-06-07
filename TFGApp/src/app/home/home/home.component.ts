@@ -18,9 +18,11 @@ export class HomeComponent implements OnInit {
   auth = getAuth();
   user = this.auth.currentUser;
   userID:any|undefined;
+  username?:string;
   ngOnInit(): void {
       this.saveInLocalStorage();
-      this.getUserData()
+      this.getUserData();
+      this.getUser()
   }
   mockArray:DataGraphic[]=[
     {
@@ -46,14 +48,8 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-  logOut(){
-    this._userService.logOut().then(()=>{
-      this._goToInit()
-    });
-  }
-  private _goToInit(){
-    this._router.navigate([CONSTANTS.ROUTES.USER.USERMENU])
-  }
+
+
   saveInLocalStorage(){
     if(this.user?.uid){
       localStorage.setItem('user',this.user?.uid)
@@ -62,4 +58,15 @@ export class HomeComponent implements OnInit {
   getUserData(){
     this.userID=localStorage.getItem('user');
   }
+  getUser(){
+    this._userService.getUserFromDB().subscribe((resp)=>{
+      this.username=resp[1].userName
+      console.log(resp[0].username)
+      console.log(resp)
+    })
+  }
+  goToUserInfo(){
+    this._router.navigate([CONSTANTS.ROUTES.SHARED.USER_INFO])
+  }
+  
 }
