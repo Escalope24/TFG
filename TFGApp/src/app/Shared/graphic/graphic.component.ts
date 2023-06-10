@@ -11,10 +11,18 @@ export class GraphicComponent implements OnInit {
   view:[number, number]= [700,700];
   results:DataGraphic[] =[];
   domain: string[]|Color = ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  colorScheme = [{
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  }];
-  scheme:string[]=['#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF']
+  colorScheme:any = {
+    domain: [
+      '#FF8A80', 
+      '#EA80FC',
+      '#8C9EFF', 
+      '#80D8FF', 
+      '#A7FFEB', 
+      '#CCFF90', 
+      '#FFFF8D', 
+      '#FF9E80'
+    ]
+  };
   sum:number = 0;
   ngOnInit(): void {
     this.getAllData();

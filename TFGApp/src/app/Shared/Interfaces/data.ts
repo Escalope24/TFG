@@ -4,6 +4,3 @@ export interface BillsData {
     value:number
 
 }
-export interface BillsHeader{
-    
-}

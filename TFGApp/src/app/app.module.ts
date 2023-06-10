@@ -17,7 +17,6 @@ import { UserModule } from './User/user.module';
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,

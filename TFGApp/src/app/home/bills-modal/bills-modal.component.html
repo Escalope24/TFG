@@ -1,32 +1,79 @@
 <div class="modalContainer">
-    <div class="headerModal">
-        
+    <div class="container" *ngIf="typesOfBills.length>0">
+        <div class="divText">
+            <h1>Introduce tus gastos!</h1>
+        </div>
+        <form [formGroup]="formReg" (ngSubmit)="insertBill()" class="form">
+            <input type="date" formControlName="fecha" class="textInput" [placeholder]="'Fecha'">
+            <select inputmode="true" formControlName="tipo" [(ngModel)]="optionSelected">
+                <option value="" >SELECCIONA EL TIPO DE GASTO</option>
+                <option *ngFor="let option of typesOfBills" value="{{option.type}}" formControlName="tipo">
+                    {{option.type}}
+                </option>
+            </select>
+            <input type="text" formControlName="cantidad" class="textInput" [placeholder]="'Cantidad'">
+            <div class="buttonContainer">
+                <button mat-raised-button color="warn"type="submit" >Añadir gasto</button>
+            </div>
+        </form>
+        <div class="createType">
+            <div class="notSelected" *ngIf="!openCreateType" (click)="openTypeOfBill()">
+                <span>
+                    Crear tipo de gasto
+                </span>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="selected" *ngIf="openCreateType">
+                <div class="buttonContainer" (click)="openTypeOfBill()">
+                    <span>
+                        Crear tipo de gasto
+                    </span>
+                    <mat-icon>keyboard_arrow_up</mat-icon>
+                </div>
+                <div class="formContainer">
+                    <form [formGroup]="createType" (ngSubmit)="createTypeOfBill()">
+                        <input type="text" formControlName="type" class="textInput" [placeholder]="'Nombre del tipo gasto'">
+                        <div class="buttonContainer">
+                        <button mat-raised-button color="warn"type="submit" >Crear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="tableContainer">
-        <table mat-table [dataSource]="mockData">
+    <div class="tableContainer" *ngIf="loadData===false">
+        <table class="table">
 
-            <ng-container matColumnDef *ngFor="let element of mockData.headers">
-                <th mat-header-cell *matHeaderCellDef>{{element}}</th>
-                <td mat-cell *matCellDef="let element" >
-
+            <tr class="row" *ngFor="let head of tableHeaders">
+                <th class="header">
+                    {{head.fecha}}
+                </th>
+                <th class="header">
+                    {{head.tipo}}
+                </th>
+                <th class="header">
+                    {{head.cantidad}}
+                </th>
+            </tr>
+            <tr class="row" *ngFor="let bill of allBills">
+                <td class="field">
+                    <span>
+                        {{bill.fecha | datePipe}}
+                    </span>
                 </td>
-              </ng-container>
-            
-
-            
-              <!-- Otras columnas aquí -->
-            
-              <!-- Encabezados de columna -->
-              <tr mat-header-row *matHeaderRowDef="mockData.headers"></tr>
-            
-              <!-- Filas de datos -->
-              <tr mat-row *matRowDef="let row; columns: mockData.headers;"></tr>
+                <td class="field">
+                    <span>
+                        {{bill.tipo}}
+                    </span>
+                </td>
+                <td class="field">
+                    <span>
+                        {{bill.cantidad}} €
+                    </span>
+                </td>
+            </tr>
         </table>
 
-    </div>
-    <div class="container">
-        <input type="text" [placeholder]="'Introduce tu gasto'">
-        <button mat-raised-button color="primary">Enviar gasto</button>
     </div>
 
 <!--     

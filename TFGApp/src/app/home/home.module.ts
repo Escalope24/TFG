@@ -12,6 +12,9 @@ import { MatTableModule } from '@angular/material/table';
 import { StatusObjectiveComponent } from './status-objective/status-objective.component';
 import { IgxProgressBarModule } from "igniteui-angular";
 import { UserServiceService } from '../User/user-service.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { DatePipe } from '../Pipes/date-pipe.pipe';
 
 
 
@@ -22,6 +25,7 @@ import { UserServiceService } from '../User/user-service.service';
     HomeComponent,
     HistoricalBillsComponent,
     StatusObjectiveComponent,
+    DatePipe
   ],
   imports: [
     CommonModule,
@@ -32,10 +36,13 @@ import { UserServiceService } from '../User/user-service.service';
     SharedModule,
     MatDialogModule,
     MatTableModule,
-    IgxProgressBarModule
+    IgxProgressBarModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    FormsModule,
   ],
   providers:[
-    UserServiceService
+    UserServiceService,
   ]
 })
 export class HomeModule { }

@@ -7,6 +7,7 @@ import { UserServiceService } from 'src/app/User/user-service.service';
 import { CONSTANTS } from 'src/app/Routes/routes';
 import { getAuth } from "firebase/auth";
 import { HomeService } from '../home.service';
+import { BillsHeaders, TableModels } from '../Models/table-models';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +20,15 @@ export class HomeComponent implements OnInit {
   user = this.auth.currentUser;
   userID:any|undefined;
   username?:string;
+  dataBills:TableModels[]=[];
+  bills:DataGraphic[]=[];
+  headers:BillsHeaders[]=[];
   ngOnInit(): void {
       this.saveInLocalStorage();
       this.getUserData();
       this.getUser()
   }
+
   mockArray:DataGraphic[]=[
     {
       name:'Covid-19',
@@ -67,6 +72,22 @@ export class HomeComponent implements OnInit {
   }
   goToUserInfo(){
     this._router.navigate([CONSTANTS.ROUTES.SHARED.USER_INFO])
+  }
+  getAllBills(){
+    this._homeService.getBills().subscribe((resp)=>{
+      this.dataBills=resp;
+    });
+    this._homeService.getHeaders().subscribe((resp)=>{
+      this.headers=resp;
+    })
+  }
+  private _fillData(){
+    this.dataBills.forEach((bill:TableModels)=>{
+      this.bills.push({
+        name:bill.tipo,
+        value:bill.cantidad
+      });
+    });
   }
   
 }
