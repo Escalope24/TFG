@@ -28,6 +28,11 @@ export const CONSTANTS=Object.freeze({
             PROGRESS:'/objective/progress',
             HISTORICAL:'/objective/historical',
         },
+        EVENTS:{
+            EVENT:'/event',
+            SOCIAL:'/social',
+            
+        },
         SHARED:{
             USER_INFO:"user/info"
         }

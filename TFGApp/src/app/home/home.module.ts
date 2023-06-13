@@ -15,6 +15,7 @@ import { UserServiceService } from '../User/user-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '../Pipes/date-pipe.pipe';
+import { SavingModalComponent } from './saving-modal/saving-modal.component';
 
 
 
@@ -25,7 +26,8 @@ import { DatePipe } from '../Pipes/date-pipe.pipe';
     HomeComponent,
     HistoricalBillsComponent,
     StatusObjectiveComponent,
-    DatePipe
+    DatePipe,
+    SavingModalComponent
   ],
   imports: [
     CommonModule,

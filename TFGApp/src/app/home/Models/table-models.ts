@@ -12,3 +12,10 @@ export interface BillsHeaders{
 export interface TypeOfBill{
     type:string;
 }
+
+export interface Saves{
+    date:string,
+    type:string,
+    value:number,
+    idUser?:string
+}

@@ -4,12 +4,15 @@
             <app-userdata [username]="username"></app-userdata>
         </div>
     </div>
-    <app-graphic [data]="mockArray"></app-graphic>
+    <div class="graphicContainer" *ngIf="bills.length>0">
+
+        <app-graphic [data]="bills"></app-graphic>
+    </div>
     <div class="buttonsContainer">
         <button mat-flat-button color="primary" (click)="openModal('a')">
             Introducir gasto
         </button>
-        <button mat-flat-button color="primary">
+        <button mat-flat-button color="primary" (click)="openModal('b')">
             Introducir ingreso
         </button>
     </div>

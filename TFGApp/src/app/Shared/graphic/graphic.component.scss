@@ -1,0 +1,9 @@
+:host ::ng-deep .advanced-pie-legend .total-label{
+    margin-top: 10px;
+}
+:host ::ng-deep .advanced-pie-legend .legend-items-container .legend-items{
+    padding-top: 10px;
+}
+:host ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item .item-value{
+    visibility: hidden;
+} 

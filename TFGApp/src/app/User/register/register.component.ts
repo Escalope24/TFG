@@ -3,6 +3,7 @@ import { UserServiceService } from '../user-service.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CONSTANTS } from 'src/app/Routes/routes';
+import { AuthService } from 'src/app/Auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
     password:new FormControl()
   })
   user:any;
-  constructor(private _userService:UserServiceService, private _router:Router){}
+  constructor(private _userService:UserServiceService, private _router:Router, private _authService:AuthService){}
   get CONSTANTS(){
     return CONSTANTS;
   }
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
       password:this.user.password
     }
     this._userService.register(userDB).then((resp)=>{
+      this._authService.setUserId(resp.user.uid)
       this._insertUser(resp);
       this._goToApp()
     }).catch(error=>console.log(error));

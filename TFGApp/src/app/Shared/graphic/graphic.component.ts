@@ -8,7 +8,7 @@ import { Color } from 'chart.js';
 })
 export class GraphicComponent implements OnInit {
   @Input () data?: DataGraphic[];
-  view:[number, number]= [700,700];
+  view:[number, number]= [window.innerWidth,700];
   results:DataGraphic[] =[];
   domain: string[]|Color = ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   colorScheme:any = {

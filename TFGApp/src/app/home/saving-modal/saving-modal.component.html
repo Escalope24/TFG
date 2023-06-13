@@ -1,0 +1,41 @@
+<div class="modalContainer">
+    <div class="container" >
+        <div class="divText">
+            <h1>Introduce tus ingresos!</h1>
+        </div>
+        <form [formGroup]="formReg" class="form">
+            <input type="date" formControlName="date" class="textInput" [placeholder]="'Fecha'">
+            <select inputmode="true" formControlName="type">
+                <option formControlName="type" *ngFor="let option of types" value="{{option.type}}">
+                    {{option.type}}
+                </option>
+            </select>
+            <input type="number" formControlName="value" class="textInput" [placeholder]="'Cantidad'">
+            <div class="buttonContainer">
+                <button mat-raised-button color="warn"type="submit" >Añadir gasto</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="tableContainer" >
+        <table class="table">
+
+            <tr class="row">
+                <th class="header">
+                    Fecha
+                </th>
+                <th class="header">
+                    Tipo de ingreso
+                </th>
+                <th class="header">
+                    Cantidad
+                </th>
+            </tr>
+            <tr class="row">
+
+            </tr>
+        </table>
+
+    </div>
+</div>
+    

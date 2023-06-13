@@ -40,39 +40,10 @@
             select{
                 width: 280px;
                 margin: 0px 40px 0px 40px;
-
+                option{
+                    color: black;
+                }
             }            
-        }
-        .createType{
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            .notSelected{
-                display: flex;
-                justify-content: center;
-            }
-            .selected{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                .buttonContainer{
-                    display: flex;
-                    justify-content: center;
-                }
-                .formContainer{
-                    margin-top: 10px;
-                    form{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        button{
-                            width: 100px;
-                            height: 32px;
-                            margin: 0px 10px 0px 10px;
-                        }
-                    }
-                }
-            }
         }
     }
 }

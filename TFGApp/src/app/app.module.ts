@@ -14,6 +14,7 @@ import { AppRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { UserModule } from './User/user.module';
+import { AuthService } from './Auth/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,7 @@ import { UserModule } from './User/user.module';
   ],
   bootstrap: [AppComponent],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,UserTrackingService,AuthService
   ]
 })
 export class AppModule { }

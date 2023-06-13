@@ -35,19 +35,18 @@ export class BillsModalComponent  implements OnInit{
   loadData:boolean=true;
   typesOfBills:TypeOfBill[]=[];
   ngOnInit(){
-    console.log(this.currentUser)
     this._homeService.getHeaders().subscribe((resp:BillsHeaders[])=>{
       this.tableHeaders=resp
     });
-    this._homeService.getTypesOfBills().subscribe((resp:TypeOfBill[])=>{
-      console.log(resp)
-      this.typesOfBills=resp;
-    });
     this._homeService.getBills().subscribe((resp:TableModels[])=>{
-      resp.filter((bill:TableModels)=>(bill.idUser===this.currentUser))
-      this.allBills=resp;
+      resp.forEach((data:TableModels)=>{
+        if(data.idUser===this.currentUser){
+          this.allBills.push(data)
+        }
+      })
       this._sortData();
-    });
+    })  
+    this.getTypesOfBills()
     this.loadData=false;
   }
   getTypesOfBills(){
@@ -59,19 +58,19 @@ export class BillsModalComponent  implements OnInit{
     if(this.currentUser!==null){
       this.dataToInsert=this.formReg.value;
       this.dataToInsert.idUser=this.currentUser;
-      this._homeService.addBill(this.dataToInsert).then(()=>{
-        this.loadData=true;
-        this.formReg.reset();
-        this.getAllBills();
-        this._sortData();
-        this.allBills.push(this.dataToInsert);
-        this.loadData=false
-      })
+      this.dataToInsert.cantidad=this.dataToInsert.cantidad
+      this._homeService.addBill(this.dataToInsert);
+      this.getAllBills()
     }
   }
   getAllBills(){
+    this.allBills=[]
     this._homeService.getBills().subscribe((resp:TableModels[])=>{
-      resp.filter((bill:TableModels)=>(bill.idUser===this.currentUser))
+      resp.forEach((data:TableModels)=>{
+        if(data.idUser===this.currentUser){
+          this.allBills.push(data)
+        }
+      })
       this._sortData();
     })  
     this.loadData=false;    
@@ -79,19 +78,6 @@ export class BillsModalComponent  implements OnInit{
   private _sortData(){
     this.allBills.sort((a:TableModels,b:TableModels)=>(a.fecha>b.fecha)?1:-1)
   }
-  openTypeOfBill(){
-    this.openCreateType=!this.openCreateType
-  }
-  createTypeOfBill(){
-    if(this._validateForm(this.createType)){
-      this._homeService.insertTypeOfBill(this.createType.value).then(()=>{
-        this.getTypesOfBills();
-      })
-    }else{
-      alert('No se puede crear un tipo de gasto vacio');
-    }
-  }
-
   private _validateForm(form:FormGroup):boolean{
     if(this.formReg.value.tipo!==''){
       return true

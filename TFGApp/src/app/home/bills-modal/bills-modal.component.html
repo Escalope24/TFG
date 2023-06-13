@@ -1,58 +1,34 @@
 <div class="modalContainer">
-    <div class="container" *ngIf="typesOfBills.length>0">
+    <div class="container" >
         <div class="divText">
             <h1>Introduce tus gastos!</h1>
         </div>
         <form [formGroup]="formReg" (ngSubmit)="insertBill()" class="form">
             <input type="date" formControlName="fecha" class="textInput" [placeholder]="'Fecha'">
-            <select inputmode="true" formControlName="tipo" [(ngModel)]="optionSelected">
-                <option value="" >SELECCIONA EL TIPO DE GASTO</option>
+            <select inputmode="true" formControlName="tipo">
                 <option *ngFor="let option of typesOfBills" value="{{option.type}}" formControlName="tipo">
                     {{option.type}}
                 </option>
             </select>
-            <input type="text" formControlName="cantidad" class="textInput" [placeholder]="'Cantidad'">
+            <input type="number" formControlName="cantidad" class="textInput" [placeholder]="'Cantidad'">
             <div class="buttonContainer">
                 <button mat-raised-button color="warn"type="submit" >Añadir gasto</button>
             </div>
         </form>
-        <div class="createType">
-            <div class="notSelected" *ngIf="!openCreateType" (click)="openTypeOfBill()">
-                <span>
-                    Crear tipo de gasto
-                </span>
-                <mat-icon>keyboard_arrow_down</mat-icon>
-            </div>
-            <div class="selected" *ngIf="openCreateType">
-                <div class="buttonContainer" (click)="openTypeOfBill()">
-                    <span>
-                        Crear tipo de gasto
-                    </span>
-                    <mat-icon>keyboard_arrow_up</mat-icon>
-                </div>
-                <div class="formContainer">
-                    <form [formGroup]="createType" (ngSubmit)="createTypeOfBill()">
-                        <input type="text" formControlName="type" class="textInput" [placeholder]="'Nombre del tipo gasto'">
-                        <div class="buttonContainer">
-                        <button mat-raised-button color="warn"type="submit" >Crear</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
     </div>
-    <div class="tableContainer" *ngIf="loadData===false">
+    <div class="tableContainer" *ngIf="loadData===false && allBills.length>0">
         <table class="table">
 
-            <tr class="row" *ngFor="let head of tableHeaders">
+            <tr class="row">
                 <th class="header">
-                    {{head.fecha}}
+                    Fecha
                 </th>
                 <th class="header">
-                    {{head.tipo}}
+                    Tipo
                 </th>
                 <th class="header">
-                    {{head.cantidad}}
+                    Cantidad
                 </th>
             </tr>
             <tr class="row" *ngFor="let bill of allBills">

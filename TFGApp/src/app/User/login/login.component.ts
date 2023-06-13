@@ -3,6 +3,7 @@ import { UserServiceService } from '../user-service.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CONSTANTS } from 'src/app/Routes/routes';
+import { AuthService } from 'src/app/Auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
     email:new FormControl(),
     password:new FormControl()
   })
-  constructor(private _userService:UserServiceService, private _router:Router){}
+  constructor(private _userService:UserServiceService, private _authService:AuthService, private _router:Router){}
   get CONSTANTS(){
     return CONSTANTS;
   }
@@ -23,7 +24,8 @@ export class LoginComponent {
   }
 
   logUser(){
-    this._userService.login(this.formReg.value).then(()=>{
+    this._userService.login(this.formReg.value).then((resp)=>{
+      this._authService.setUserId(resp.user.uid)
       this._goToApp()
     }).catch(error=>console.log(error));
   }

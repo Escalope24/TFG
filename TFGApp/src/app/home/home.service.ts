@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { BillsData} from '../Shared/Interfaces/data';
 import { Observable } from 'rxjs';
-import { BillsHeaders, TableModels, TypeOfBill } from './Models/table-models';
+import { BillsHeaders, Saves, TableModels, TypeOfBill } from './Models/table-models';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +28,17 @@ export class HomeService {
   insertTypeOfBill(type:TypeOfBill){
     const billPlace=collection(this._firestore,'typeOfBill')
     return addDoc(billPlace,type)
+  }
+  getSaves(){
+    const billPlace=collection(this._firestore,'saves')
+    return collectionData(billPlace)  as Observable<any[]>;
+  }
+  insertSaves(saves:Saves){
+    const billPlace=collection(this._firestore,'saves')
+    return addDoc(billPlace,saves);
+  }
+  getSavesTypes(){
+    const billPlace=collection(this._firestore,'saveTypes')
+    return collectionData(billPlace)  as Observable<any[]>;
   }
 }
