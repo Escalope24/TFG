@@ -1,28 +1,64 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataGraphic } from '../Interfaces/graphic';
 import { Color } from 'chart.js';
+import { ApexNonAxisChartSeries, ApexChart, ApexResponsive } from 'ng-apexcharts';
+import { TableModels } from 'src/app/home/Models/table-models';
+export type ChartOptions = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+};
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
   styleUrls: ['./graphic.component.scss']
 })
 export class GraphicComponent implements OnInit {
-  @Input () data?: DataGraphic[];
-  view:[number, number]= [window.innerWidth,700];
+  @Input () data?: DataGraphic[]=[];
+  series:number[]=[];
+  labels:string[]=[];
+  chart:ApexChart={
+    type:'pie'
+  }
+  loadData:boolean=false;
+  responsive:any[]=[
+    {
+      breakpoint: 1500,
+      options: {
+        chart: {
+          width: 700
+        },
+        legend: {
+          position: "right"
+        }
+      },
+    },
+    {
+      breakpoint: 3000,
+      options: {
+        chart: {
+          width: 800
+        },
+        legend: {
+          position: "right"
+        }
+      }
+    },
+    {
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: "bottom"
+        }
+      }
+    }
+  ]
   results:DataGraphic[] =[];
-  domain: string[]|Color = ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  colorScheme:any = {
-    domain: [
-      '#FF8A80', 
-      '#EA80FC',
-      '#8C9EFF', 
-      '#80D8FF', 
-      '#A7FFEB', 
-      '#CCFF90', 
-      '#FFFF8D', 
-      '#FF9E80'
-    ]
-  };
+  constructor(){}
   sum:number = 0;
   ngOnInit(): void {
     this.getAllData();
@@ -37,8 +73,18 @@ export class GraphicComponent implements OnInit {
     }
   }
   private getAllData(){
+    let values:number[]=[]
+    let labels:string[]=[]
     if(this.data){
-      this.results=this.data;
+      
+      console.log(this.data)
+      this.data.forEach((bill:DataGraphic)=>{
+        values.push(bill.value);
+        labels.push(bill.name)
+      })  
+      this.labels=labels;
+      this.series=values;
+      this.loadData=true
     }
   } 
   getPercent(index:DataGraphic):string{
@@ -50,6 +96,7 @@ export class GraphicComponent implements OnInit {
     }
     return '0%';
   }
+  
 
 
 }

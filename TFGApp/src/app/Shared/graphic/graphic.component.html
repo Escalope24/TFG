@@ -1,5 +1,11 @@
 <div class="container">
-    <div class="graphic">
-        <ngx-charts-advanced-pie-chart [view]="view" [results]="results" [animations]="true" [gradient]="false" [scheme]="colorScheme" ></ngx-charts-advanced-pie-chart>
+    <div class="graphic" *ngIf="loadData">
+            <apx-chart
+            [series]="series"
+            [chart]="chart"
+            [labels]="labels"
+            [responsive]="responsive"
+            ></apx-chart>
+        <!-- <ngx-charts-advanced-pie-chart [view]="view" [results]="results" [animations]="true" [gradient]="false" [scheme]="colorScheme" ></ngx-charts-advanced-pie-chart> -->
     </div>
 </div>

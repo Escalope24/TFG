@@ -29,8 +29,9 @@ export const CONSTANTS=Object.freeze({
             HISTORICAL:'/objective/historical',
         },
         EVENTS:{
-            EVENT:'/event',
+            EVENTS_MENU:'/events',
             SOCIAL:'/social',
+            CREATE_EVENT:'/createEvent',
             
         },
         SHARED:{

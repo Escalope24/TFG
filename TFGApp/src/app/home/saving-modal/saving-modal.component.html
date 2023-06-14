@@ -3,16 +3,16 @@
         <div class="divText">
             <h1>Introduce tus ingresos!</h1>
         </div>
-        <form [formGroup]="formReg" class="form">
+        <form [formGroup]="formReg" class="form" (ngSubmit)="fillForm()">
             <input type="date" formControlName="date" class="textInput" [placeholder]="'Fecha'">
             <select inputmode="true" formControlName="type">
-                <option formControlName="type" *ngFor="let option of types" value="{{option.type}}">
+                <option *ngFor="let option of types" value="{{option.type}}">
                     {{option.type}}
                 </option>
             </select>
             <input type="number" formControlName="value" class="textInput" [placeholder]="'Cantidad'">
             <div class="buttonContainer">
-                <button mat-raised-button color="warn"type="submit" >Añadir gasto</button>
+                <button mat-raised-button color="warn"type="submit" >Añadir Ingreso</button>
             </div>
         </form>
 
@@ -31,8 +31,16 @@
                     Cantidad
                 </th>
             </tr>
-            <tr class="row">
-
+            <tr class="row" *ngFor="let save of saves">
+                <td class="field">
+                    {{save.date | datePipe }}
+                </td>
+                <td class="field">
+                    {{save.type}}
+                </td>
+                <td class="field">
+                    {{save.value}}
+                </td>
             </tr>
         </table>
 

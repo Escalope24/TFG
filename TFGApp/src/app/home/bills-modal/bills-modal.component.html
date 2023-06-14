@@ -6,7 +6,7 @@
         <form [formGroup]="formReg" (ngSubmit)="insertBill()" class="form">
             <input type="date" formControlName="fecha" class="textInput" [placeholder]="'Fecha'">
             <select inputmode="true" formControlName="tipo">
-                <option *ngFor="let option of typesOfBills" value="{{option.type}}" formControlName="tipo">
+                <option *ngFor="let option of typesOfBills" value="{{option.type}}">
                     {{option.type}}
                 </option>
             </select>

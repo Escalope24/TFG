@@ -14,9 +14,11 @@ export class SavingModalComponent implements OnInit {
   formReg:FormGroup=new FormGroup({
     date:new FormControl(),
     type:new FormControl(),
-    value:new FormControl()
+    value:new FormControl(),
+    idUser:new FormControl(this._auth.getUserId())
   });
   saves:Saves[]=[];
+  insertSave?:Saves;
   types:TypeOfBill[]=[];
 
     constructor(
@@ -28,16 +30,25 @@ export class SavingModalComponent implements OnInit {
         this._homeService.getSavesTypes().subscribe((resp)=>{
           this.types=resp;
         })
-        let user=this._auth.getUserId()
-        console.log(user)
+        this.getAllSaves();
     }
     getAllSaves(){
-      this._homeService.getSaves().subscribe((resp)=>{
-
+      this.saves=[]
+      this._homeService.getSaves().subscribe((resp:Saves[])=>{
+        resp.forEach((save)=>{
+          if(save.idUser=this._auth.getUserId()){
+            this.saves.push(save);
+          }
+        })
       })
+      console.log(this.saves.push);
     }
     fillForm(){
-
-      
+      this.insertSave=this.formReg.value;
+      if(this.insertSave){
+        this._homeService.insertSaves(this.insertSave);
+      }
+      this.saves=[];
+      console.log(this.saves)
     }
 }

@@ -16,6 +16,8 @@ import {MatTableModule} from '@angular/material/table';
 import { UserdataComponent } from './userdata/userdata.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { MatButtonModule } from '@angular/material/button';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { MatButtonModule } from '@angular/material/button';
     D3SelectionModule,
     D3ShapeModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    NgApexchartsModule
   ],
   exports:[
     SidebarComponent,

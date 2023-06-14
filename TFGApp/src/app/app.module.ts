@@ -15,15 +15,28 @@ import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { UserModule } from './User/user.module';
 import { AuthService } from './Auth/auth.service';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
+import { ObjectivesMenuComponent } from './Objectives/objectives-menu/objectives-menu.component';
+import { EventsMenuComponent } from './Events/events-menu/events-menu.component';
+import { FriendsComponent } from './Events/friends/friends.component';
+import { CreateEventComponent } from './Events/create-event/create-event.component';
 @NgModule({
   declarations: [
     AppComponent,
+    NavigateBarComponent,
+    ObjectivesMenuComponent,
+    EventsMenuComponent,
+    FriendsComponent,
+    CreateEventComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     HomeModule,
     UserModule,
+    NgApexchartsModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
