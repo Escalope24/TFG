@@ -1,0 +1,23 @@
+.navigator{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: darkgray;
+    border: 1px solid chocolate;
+
+    .modules{
+        width: 200px;
+        .img{
+            display: flex;
+            justify-content: center;
+            button{
+                background-color: darkgray;
+                border: none;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+}

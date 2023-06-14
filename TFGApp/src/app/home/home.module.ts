@@ -18,7 +18,6 @@ import { DatePipe } from '../Pipes/date-pipe.pipe';
 import { SavingModalComponent } from './saving-modal/saving-modal.component';
 
 
-
 // TODO RECORDAR QUE LA INTRODUCCION A LA HOME YA DEBE DE SER CON UNA CUENTA LOGEADA
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { SavingModalComponent } from './saving-modal/saving-modal.component';
     HistoricalBillsComponent,
     StatusObjectiveComponent,
     DatePipe,
-    SavingModalComponent
+    SavingModalComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +44,6 @@ import { SavingModalComponent } from './saving-modal/saving-modal.component';
   ],
   providers:[
     UserServiceService,
-  ]
+  ],
 })
 export class HomeModule { }

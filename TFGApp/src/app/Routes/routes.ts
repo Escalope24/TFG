@@ -22,11 +22,11 @@ export const CONSTANTS=Object.freeze({
             BILS_EDIT:'/bills/edit',
         },
         OBJECTIVES:{
-            OBJECTIVE:'/objective',
-            OBJECTIVE_NEW:'/objective/new',
-            OBJECTIVE_LIST:'/objective/list',
-            PROGRESS:'/objective/progress',
-            HISTORICAL:'/objective/historical',
+            OBJECTIVE:'menu/objective',
+            OBJECTIVE_NEW:'menu/objective/new',
+            OBJECTIVE_LIST:'menu/objective/list',
+            PROGRESS:'menu/objective/progress',
+            HISTORICAL:'menu/objective/historical',
         },
         EVENTS:{
             EVENTS_MENU:'/events',
