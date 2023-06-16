@@ -1,1 +1,39 @@
-<p>objectives-views works!</p>
+<div class="container">
+  <h1>Lista de objetivos</h1>  
+  <div class="containerTable">
+    <table>
+        <tr class="row">
+            <th class="header">
+                Mes
+            </th>
+            <th class="header">
+                Total Gastos
+            </th>
+            <th class="header">
+                Total Ingresos
+            </th>
+            <th class="header">
+                Objetivo
+            </th>
+        </tr>
+        <tr class="row" *ngFor="let objetive of objectives">
+            <td class="field">{{objetive.month}}</td>
+            <td class="field">{{objetive.allBills}}</td>
+            <td class="field">{{objetive.allSaves}}</td>
+            <td class="field">
+                <div id="chart">
+                    <apx-chart
+                    [series]="[objetive.objectives]"
+                    [chart]="chart"
+                    [plotOptions]="plotOptions"
+                    [fill]="fill"
+                    
+                    >
+                    </apx-chart>
+                </div>
+    
+            </td>
+        </tr>
+    </table>
+  </div>
+</div>

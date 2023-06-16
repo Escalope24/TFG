@@ -77,7 +77,6 @@ export class GraphicComponent implements OnInit {
     let labels:string[]=[]
     if(this.data){
       
-      console.log(this.data)
       this.data.forEach((bill:DataGraphic)=>{
         values.push(bill.value);
         labels.push(bill.name)

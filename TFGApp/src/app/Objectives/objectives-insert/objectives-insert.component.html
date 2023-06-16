@@ -1,1 +1,20 @@
-<p>objectives-insert works!</p>
+<div class="container">
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        <app-navigate-bar></app-navigate-bar>
+    </div>
+    <h1>Inserta tus objetivos</h1>
+    <div class="formContainer">
+
+        <form [formGroup]="formReg" class="form" (ngSubmit)="fillForm()">
+            <input type="text" formControlName="name" class="textInput" [placeholder]="'Nombre del objetivo'">
+            <input type="month" formControlName="month" class="textInput" [placeholder]="'Mes'">
+            <input type="number" formControlName="value" class="textInput" [placeholder]="'Cantidad'">
+            <div class="buttonContainer">
+                <button mat-raised-button color="warn"type="submit" >Crear Objetivo</button>
+            </div>
+        </form>
+    </div>
+</div>

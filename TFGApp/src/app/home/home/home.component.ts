@@ -63,8 +63,6 @@ export class HomeComponent implements OnInit, OnChanges {
   getUser(){
     this._userService.getUserFromDB().subscribe((resp)=>{
       resp.forEach((users)=>{
-        console.log(users)
-        console.log(this.userID)
         if(users.id===this.userID){
           this.username=users.userName
         }

@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    background: black;
+    h1{
+        font-size: 40px;
+        text-align: center;
+        color: white;
+        font-family: fantasy ;
+    }
+    .containerTable{
+        display: flex;
+        justify-content: center;
+        table{
+            margin-top: 50px;
+            width: 1000px;
+            .row{
+                .header{
+                    height: 50px;
+                    background: coral;
+                    color: white;
+                    border-radius: 5px;
+                }
+                .field{
+                    width: 200px;
+                    height: 100px;
+                    background: #f5f5f5;
+                    border-bottom: 1px solid #e6e6e6;
+                    align-items: center;
+                    padding: 0 20px;
+                    #chart{
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}

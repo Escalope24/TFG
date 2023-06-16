@@ -1,0 +1,52 @@
+::-webkit-input-placeholder {
+    color: white;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+  .container{
+    .notSidebar{
+        height: 30px;
+    }
+    .sidebar{
+    }
+    background: black;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    h1{
+        margin-top: 40px;
+        font-size: 40px;
+        text-align: center;
+        color: white;
+        font-family: fantasy ;
+    }
+    .formContainer{
+        display: flex;
+        justify-content: center;
+        margin-top: 124px;
+        form{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            input{
+                width: 600px;
+                height: 50px;
+                color: white;
+                padding-left: 20px;
+                font-size: 20px;
+                background: coral;
+                border-radius: 16px;
+                margin-top: 24px;
+            }
+        }
+        .buttonContainer{
+            margin-top: 24px;
+            display:flex;
+            button{
+                height: 50px;
+
+                width: 100%;
+                border-radius: 8px;
+            }
+        }
+    }
+}

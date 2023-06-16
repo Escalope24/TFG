@@ -41,7 +41,6 @@ export class SavingModalComponent implements OnInit {
           }
         })
       })
-      console.log(this.saves.push);
     }
     fillForm(){
       this.insertSave=this.formReg.value;
@@ -49,6 +48,5 @@ export class SavingModalComponent implements OnInit {
         this._homeService.insertSaves(this.insertSave);
       }
       this.saves=[];
-      console.log(this.saves)
     }
 }
