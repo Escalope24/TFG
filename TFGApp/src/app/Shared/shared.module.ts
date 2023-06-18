@@ -38,7 +38,8 @@ import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
     D3ShapeModule,
     MatTableModule,
     MatButtonModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MatIconModule
   ],
   exports:[
     SidebarComponent,

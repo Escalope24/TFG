@@ -2,9 +2,12 @@
     <div class="navigation">
         <app-navigate-bar></app-navigate-bar>
     </div>
-    <div class="graphicContainer" *ngIf="bills.length>0">
+    <div class="graphicContainer" *ngIf="bills.length>0 && loadGraphic">
 
         <app-graphic [data]="bills"></app-graphic>
+    </div>
+    <div class="graphicContainer" *ngIf="bills.length===0">
+        <h1>No hay datos disponibles</h1>
     </div>
     <div class="buttonsContainer">
         <button mat-flat-button color="primary" (click)="openModal('a')">

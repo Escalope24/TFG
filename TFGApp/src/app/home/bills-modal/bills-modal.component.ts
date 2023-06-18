@@ -32,22 +32,14 @@ export class BillsModalComponent  implements OnInit{
   allBills:TableModels[]=[];
   dataToInsert:TableModels;
   currentUser:string|null=localStorage.getItem('user');
-  loadData:boolean=true;
+  loadData:boolean=false;
   typesOfBills:TypeOfBill[]=[];
   ngOnInit(){
     this._homeService.getHeaders().subscribe((resp:BillsHeaders[])=>{
       this.tableHeaders=resp
     });
-    this._homeService.getBills().subscribe((resp:TableModels[])=>{
-      resp.forEach((data:TableModels)=>{
-        if(data.idUser===this.currentUser){
-          this.allBills.push(data)
-        }
-      })
-      this._sortData();
-    })  
+    this.getAllBills();
     this.getTypesOfBills()
-    this.loadData=false;
   }
   getTypesOfBills(){
     this._homeService.getTypesOfBills().subscribe((resp:TypeOfBill[])=>{
@@ -60,20 +52,23 @@ export class BillsModalComponent  implements OnInit{
       this.dataToInsert.idUser=this.currentUser;
       this.dataToInsert.cantidad=this.dataToInsert.cantidad
       this._homeService.addBill(this.dataToInsert);
-      this.getAllBills()
+      this.loadData=false
+      this.getAllBills();
+      this.formReg.reset();
     }
   }
   getAllBills(){
-    this.allBills=[]
+    this.loadData=false;
     this._homeService.getBills().subscribe((resp:TableModels[])=>{
+      this.allBills=[]
       resp.forEach((data:TableModels)=>{
         if(data.idUser===this.currentUser){
           this.allBills.push(data)
         }
       })
       this._sortData();
-    })  
-    this.loadData=false;    
+    });
+    this.loadData=true;    
   }
   private _sortData(){
     this.allBills.sort((a:TableModels,b:TableModels)=>(a.fecha>b.fecha)?1:-1)

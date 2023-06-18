@@ -9,6 +9,7 @@ import { getAuth } from "firebase/auth";
 import { HomeService } from '../home.service';
 import { BillsHeaders, TableModels } from '../Models/table-models';
 import { SavingModalComponent } from '../saving-modal/saving-modal.component';
+import { AuthService } from 'src/app/Auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ import { SavingModalComponent } from '../saving-modal/saving-modal.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnChanges {
-  constructor( private _dialog:MatDialog, private _userService:UserServiceService, private _router:Router, private _homeService:HomeService){
+  constructor( private _dialog:MatDialog, private _userService:UserServiceService, private _router:Router, private _homeService:HomeService, private _auth:AuthService){
     this.dataBills=[]
   }
   auth = getAuth();
@@ -27,7 +28,9 @@ export class HomeComponent implements OnInit, OnChanges {
   bills:DataGraphic[]=[];
   headers:BillsHeaders[]=[];
   types?:string[];
+  loadGraphic:boolean=false
   ngOnInit(): void {
+    console.log(this._auth.getUserId())
       this.saveInLocalStorage();
       this.getUserData();
       this.getUser();
@@ -37,11 +40,17 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   openModal(module:string){
+    this.loadGraphic=false;
     if(module==='a'){
       this._dialog.open(BillsModalComponent,{
         width:'100%',
-        height:'100%'
-      });
+        height:'100%',
+        
+      },
+      );
+      this._dialog.afterAllClosed.subscribe(()=>{
+        this.getBills();
+      })      
     }
     else if(module==="b"){
       this._dialog.open(SavingModalComponent,{
@@ -69,16 +78,15 @@ export class HomeComponent implements OnInit, OnChanges {
       })
     })
   }
-  goToUserInfo(){
-    this._router.navigate([CONSTANTS.ROUTES.SHARED.USER_INFO])
-  }
   getBills(){
+    this.loadGraphic=false
     this._homeService.getBills().subscribe((resp)=>{
       resp.forEach((bill)=>{
-        if(bill.idUser==bill.idUser){
+        if(bill.idUser===this._auth.getUserId()){
           this.fillData(bill)
         }
       })
+      this.loadGraphic=true;
     })
   }
   private fillData(data:TableModels){

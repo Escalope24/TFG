@@ -33,10 +33,10 @@ export class SavingModalComponent implements OnInit {
         this.getAllSaves();
     }
     getAllSaves(){
-      this.saves=[]
       this._homeService.getSaves().subscribe((resp:Saves[])=>{
+        this.saves=[]
         resp.forEach((save)=>{
-          if(save.idUser=this._auth.getUserId()){
+          if(save.idUser===this._auth.getUserId()){
             this.saves.push(save);
           }
         })
@@ -47,6 +47,6 @@ export class SavingModalComponent implements OnInit {
       if(this.insertSave){
         this._homeService.insertSaves(this.insertSave);
       }
-      this.saves=[];
+      this.formReg.reset();
     }
 }

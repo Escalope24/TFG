@@ -28,7 +28,7 @@ export class EventComponent implements OnInit{
       breakpoint: 1500,
       options: {
         chart: {
-          width: 300
+          width: 500
         },
         legend: {
           position: "right",
@@ -42,7 +42,7 @@ export class EventComponent implements OnInit{
       breakpoint: 3000,
       options: {
         chart: {
-          width: 300
+          width: 500
         },
         legend: {
           position: "right",
@@ -161,7 +161,7 @@ export class EventComponent implements OnInit{
             name:participante,
             value:parseInt(item),
             total:val,
-            percent:(parseInt(item)/val)*100
+            percent:Math.floor((parseInt(item)/val)*100)
           }
           this.aportaciones.push(value)
         }
