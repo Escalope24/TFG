@@ -26,17 +26,17 @@ export class ObjectivesInsertComponent implements OnInit{
     this._objetiveService.getObjectives().subscribe((objectives:Objectives[])=>{
       objectives.forEach((objective:Objectives)=>{
         if(objective.idUser===this._auth.getUserId()){
+          console.log(objective.idUser)
+          console.log(this._auth.getUserId())
           this.allObjectives.push(objective)
         }
       })
     })
   }
   fillForm(){
-
-    console.log(this.allObjectives)
     const monthRepeat=this.allObjectives.find((objective)=>objective.month==this.formReg.value['month'])
     console.log(monthRepeat)
-    if(monthRepeat){
+    if(monthRepeat===undefined){
       console.log('entra')
       this._objetiveService.createObjective(this.formReg.value)
     }
@@ -44,8 +44,7 @@ export class ObjectivesInsertComponent implements OnInit{
       console.log('no se envia')
       alert('No se  puede poner 2 objetivos para un mes')
     }
-    console.log('allobjectives')
-    console.log(this.allObjectives)
+    this.formReg.reset()
   }
   showNavigation(){
     this.showNavigationBar=true;

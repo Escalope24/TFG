@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SocialService } from '../social.service';
 import { UserServiceService } from 'src/app/User/user-service.service';
 import { AuthService } from 'src/app/Auth/auth.service';
+import { Events } from '../Models/events';
+import { Router } from '@angular/router';
+import { CONSTANTS } from 'src/app/Routes/routes';
 
 @Component({
   selector: 'app-mpevents',
@@ -10,17 +13,20 @@ import { AuthService } from 'src/app/Auth/auth.service';
 })
 export class MPEventsComponent implements OnInit {
 
-  constructor(private _socialService:SocialService, private _userService:UserServiceService, private _authService:AuthService){}
-  users:any[]=[]
+  constructor(private _socialService:SocialService, private _userService:UserServiceService, private _authService:AuthService, private _router:Router){}
+  users:any[]=[];
+  eventsUser:Events[]=[]
   ngOnInit(): void {
-    this._userService.getUserFromDB().subscribe((users)=>{
-      users.forEach((user)=>{
-        if(user.id!=this._authService.getUserId()){
-          this.users.push(user);
+    this._socialService.getEvents().subscribe((events:Events[])=>{
+      events.forEach((event)=>{
+        if(event.idUser===this._authService.getUserId()){
+          this.eventsUser.push(event);
+          console.log(this.eventsUser)
         }
       })
-      console.log(this._authService.getUserId())
-      console.log(this.users)
     })
+  }
+  goToEvent(event:Events){
+    this._router.navigate([CONSTANTS.ROUTES.EVENTS.EVENT], {queryParams:event})
   }
 }

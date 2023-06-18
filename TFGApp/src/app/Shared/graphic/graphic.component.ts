@@ -27,10 +27,10 @@ export class GraphicComponent implements OnInit {
       breakpoint: 1500,
       options: {
         chart: {
-          width: 700
+          width: 600
         },
         legend: {
-          position: "right"
+          position: "right",
         }
       },
     },
@@ -41,7 +41,10 @@ export class GraphicComponent implements OnInit {
           width: 800
         },
         legend: {
-          position: "right"
+          position: "right",
+          labels:{
+            colors:['white']
+          }
         }
       }
     },
@@ -79,7 +82,7 @@ export class GraphicComponent implements OnInit {
       
       this.data.forEach((bill:DataGraphic)=>{
         values.push(bill.value);
-        labels.push(bill.name)
+        labels.push(bill.name.toUpperCase())
       })  
       this.labels=labels;
       this.series=values;

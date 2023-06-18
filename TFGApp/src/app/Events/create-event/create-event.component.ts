@@ -41,6 +41,10 @@ export class CreateEventComponent {
     }
     console.log(this.formReg.value)
   }
-  
+  eliminarUsuario(participante:any){
+    let value=this.participantes.indexOf(participante)
+    this.participantes.splice(value)
+    console.log(this.participantes)
+  }
 
 }

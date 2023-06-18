@@ -14,6 +14,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { Firestore } from '@angular/fire/firestore';
 import { AppModule } from '../app.module';
 import { HomeService } from '../home/home.service';
+import { EventComponent } from './event/event.component';
 
 
 
@@ -23,6 +24,7 @@ import { HomeService } from '../home/home.service';
     EventsMenuComponent,
     FriendsComponent,
     MPEventsComponent,
+    EventComponent,
   ],
   imports: [
     CommonModule,

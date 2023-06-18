@@ -63,6 +63,30 @@ export class ObjectivesViewsComponent implements OnInit{
   constructor(private auth:AuthService, private _objectivesService:ObjectivesService, private _billsService:HomeService){}
 
   ngOnInit(): void {
+    this._objectivesService.getObjectives().subscribe((objectives:Objectives[])=>{
+      objectives.forEach((objective)=>{
+        if(objective.idUser===this.auth.getUserId()){
+          if(this.objectives.length>0){
+            this.objectives.forEach((objectiveData)=>{
+              if(objectiveData.month===objective.month){
+                let percent=((objectiveData.allSaves-objectiveData.allBills)/objective.value)*100
+                  objectiveData.objectives=Math.trunc(percent)
+              }
+            })
+          }else{
+            let objective2:ObjectivesData={
+              month:objective.month,
+              allBills: 0,
+              allSaves: 0,
+              objectives: 0
+            }
+            this.objectives.push(objective2)
+          }
+          this.allObjectives.push(objective)
+        }
+      })
+    })
+
       this._billsService.getBills().subscribe((bills:TableModels[])=>{
         bills.forEach((bill)=>{
           if(bill.idUser===this.auth.getUserId()){
@@ -118,7 +142,6 @@ export class ObjectivesViewsComponent implements OnInit{
           }
         })
       })
-      console.log(this.objectives)
   }
   showNavigation(){
     this.showNavigationBar=true;

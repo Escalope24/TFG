@@ -1,7 +1,20 @@
 <div class="container">
 
-    <div class="main">
-        <h1>Tus eventos</h1>
-        
+    <h1>Tus eventos</h1>
+    <div class="tableContainer">
+        <table>
+            <tr class="row">
+                <th class="header">Dia del evento</th>
+                <th class="header">Nombre del evento</th>
+                <th class="header">Participantes</th>
+                <th class="header">Coste total</th>
+            </tr>
+            <tr class="row" *ngFor="let event of eventsUser" (click)="goToEvent(event)">
+                <td class="field">{{event.date|date}}</td>
+                <td class="field">{{event.name}}</td>
+                <td class="field">{{event.participantes}}</td>
+                <td class="field">{{event.value}}</td>
+            </tr>
+        </table>
     </div>
 </div>

@@ -32,6 +32,7 @@ export const CONSTANTS=Object.freeze({
             EVENTS_MENU:'events/menu',
             SOCIAL:'events/social',
             CREATE_EVENT:'events/createEvent',
+            EVENT:'events/event'
             
         },
         SHARED:{

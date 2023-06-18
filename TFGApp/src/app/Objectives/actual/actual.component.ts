@@ -78,6 +78,7 @@ export class ActualComponent implements OnInit{
       stops: [0, 50, 53, 91]
     }
   }
+  showNavigationBar:boolean=false
   constructor( private auth:AuthService, private _billsService:HomeService, private _objectivesServices:ObjectivesService){}
   ngOnInit(){
     if(this.currentDate.getMonth()<9){
@@ -114,6 +115,13 @@ export class ActualComponent implements OnInit{
       })
     })
 
+  }
+  showNavigation(){
+    this.showNavigationBar=true;
+
+  }
+  leaveNavigation(){
+    this.showNavigationBar=false
   }
 
 }

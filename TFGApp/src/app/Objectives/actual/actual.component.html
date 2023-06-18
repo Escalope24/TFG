@@ -1,4 +1,11 @@
 <div class="container">
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+    
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        
+        <app-navigate-bar></app-navigate-bar>
+    </div>
     <h1>Historial del mes a dia {{currentDate|date}}</h1>
     <div class="viewsContainer">
 

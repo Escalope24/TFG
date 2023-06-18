@@ -1,18 +1,22 @@
 :host{
     background: black;
 }
-.notSidebar{
-    height: 108px;
-    background: black;
-}
+
 .container{
-    padding-top: 40px;
+    .notSidebar{
+        height: 20px;
+        background: black;
+    }
+    .sidebar{
+        height: 20px;
+    }
     display: flex;
     flex-direction: column;
     height: 100%;
     background: black;
     overflow: auto;
     h1{
+        margin-top: 40px;
         font-size: 40px;
         text-align: center;
         color: white;

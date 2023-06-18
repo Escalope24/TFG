@@ -16,6 +16,7 @@ import { ActualComponent } from './Objectives/actual/actual.component';
 import { EventsMenuComponent } from './Events/events-menu/events-menu.component';
 import { CreateEventComponent } from './Events/create-event/create-event.component';
 import { MPEventsComponent } from './Events/mpevents/mpevents.component';
+import { EventComponent } from './Events/event/event.component';
 
 
 export const AppRoutes: Route[] = [
@@ -28,7 +29,8 @@ export const AppRoutes: Route[] = [
   {path:CONSTANTS.ROUTES.OBJECTIVES.ACTUAL, component:ActualComponent},
   {path:CONSTANTS.ROUTES.EVENTS.EVENTS_MENU, component:EventsMenuComponent},
   {path:CONSTANTS.ROUTES.EVENTS.SOCIAL, component:MPEventsComponent},
-  {path:CONSTANTS.ROUTES.EVENTS.CREATE_EVENT, component:CreateEventComponent}
+  {path:CONSTANTS.ROUTES.EVENTS.CREATE_EVENT, component:CreateEventComponent},
+  {path:CONSTANTS.ROUTES.EVENTS.EVENT, component:EventComponent}
 
 
 ]

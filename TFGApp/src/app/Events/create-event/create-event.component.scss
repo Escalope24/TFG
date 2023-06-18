@@ -1,6 +1,5 @@
 ::-webkit-input-placeholder {
     color: white;
-    padding-left: 20px;
     font-size: 20px;
   }
 .container{
@@ -66,7 +65,13 @@
                 justify-content: center;
                 ul{
                     li{
-                        color:coral
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        color:coral;
+                        button{
+                            height: 24px;
+                        }
                     }
                 }
                 span{
