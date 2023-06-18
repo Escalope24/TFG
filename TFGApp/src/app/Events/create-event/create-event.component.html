@@ -1,1 +1,24 @@
-<p>create-event works!</p>
+<div class="container">
+    <div class="addParticipante">
+        <form [formGroup]="agregarParticipantes" (ngSubmit)="addParticipante()">
+            <input type="text" formControlName="participante">
+            <button mat-raised-button color="primary" type="submit">Añadir</button>
+        </form>
+        <div class="participantes">
+            <h1>Participantes</h1>
+            <div class="participanteContainer" *ngIf="added">
+                <ul>
+                    <li *ngFor="let participante of participantes"> <span>{{participante}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="createEvent">
+        <form  [formGroup]="formReg" (ngSubmit)="createEvent()">
+            <input type="text" formControlName="name" placeholder="Nombre del evento">
+            <input type="date" formControlName="date" >
+            <input type="number" formControlName="value" placeholder="Valor del evento">
+            <button mat-raised-button color="primary" type="submit">Crear evento</button>
+        </form>
+    </div>
+</div>

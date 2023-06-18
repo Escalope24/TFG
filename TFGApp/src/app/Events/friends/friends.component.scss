@@ -1,0 +1,27 @@
+.container{
+    .findFriend{
+        margin-top: 40px;
+        form{
+            button{
+                height: 20px;
+            }
+        }
+        .searchFriend{
+            margin-top: 20px;
+            .friendSearch{
+                background: lightgray;
+                display: flex;
+                justify-content: space-around;
+                border: 1px solid black;
+                border-radius: 8px;
+                span{
+                    width: 50px;
+                    margin-right: 30px;
+                }
+                button{
+                    height: 20px;
+                }
+            }
+        }
+    }
+}

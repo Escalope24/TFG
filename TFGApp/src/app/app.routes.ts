@@ -12,6 +12,10 @@ import { UserInfoComponent } from './Shared/user-info/user-info.component';
 import { ObjectivesMenuComponent } from './Objectives/objectives-menu/objectives-menu.component';
 import { ObjectivesViewsComponent } from './Objectives/objectives-views/objectives-views.component';
 import { ObjectivesInsertComponent } from './Objectives/objectives-insert/objectives-insert.component';
+import { ActualComponent } from './Objectives/actual/actual.component';
+import { EventsMenuComponent } from './Events/events-menu/events-menu.component';
+import { CreateEventComponent } from './Events/create-event/create-event.component';
+import { MPEventsComponent } from './Events/mpevents/mpevents.component';
 
 
 export const AppRoutes: Route[] = [
@@ -20,7 +24,11 @@ export const AppRoutes: Route[] = [
   {path:CONSTANTS.ROUTES.SHARED.USER_INFO, component:UserInfoComponent},
   {path:CONSTANTS.ROUTES.OBJECTIVES.OBJECTIVE, component:ObjectivesMenuComponent},
   {path:CONSTANTS.ROUTES.OBJECTIVES.OBJECTIVE_LIST, component:ObjectivesViewsComponent},
-  {path:CONSTANTS.ROUTES.OBJECTIVES.OBJECTIVE_NEW, component:ObjectivesInsertComponent}
+  {path:CONSTANTS.ROUTES.OBJECTIVES.OBJECTIVE_NEW, component:ObjectivesInsertComponent},
+  {path:CONSTANTS.ROUTES.OBJECTIVES.ACTUAL, component:ActualComponent},
+  {path:CONSTANTS.ROUTES.EVENTS.EVENTS_MENU, component:EventsMenuComponent},
+  {path:CONSTANTS.ROUTES.EVENTS.SOCIAL, component:MPEventsComponent},
+  {path:CONSTANTS.ROUTES.EVENTS.CREATE_EVENT, component:CreateEventComponent}
 
 
 ]

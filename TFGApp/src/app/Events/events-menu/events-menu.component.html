@@ -1,1 +1,9 @@
-<p>events-menu works!</p>
+<app-navigate-bar></app-navigate-bar>
+<div class="container">
+    <div class="viewSelector" (click)="goToMainEvents()">
+        <h2>Ir a Eventos</h2>
+    </div>
+    <div class="viewSelector"(click)="goToCreateEvent()">
+        <h2>Crear Eventos</h2>
+    </div>
+</div>

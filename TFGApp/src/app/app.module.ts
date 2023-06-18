@@ -17,6 +17,7 @@ import { UserModule } from './User/user.module';
 import { AuthService } from './Auth/auth.service';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ObjectivesModule } from './Objectives/objectives.module';
+import { EventsModule } from './Events/events.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { ObjectivesModule } from './Objectives/objectives.module';
     HomeModule,
     UserModule,
     ObjectivesModule,
+    EventsModule,
     NgApexchartsModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -34,11 +36,11 @@ import { ObjectivesModule } from './Objectives/objectives.module';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
   ],
   bootstrap: [AppComponent],
   providers: [
-    ScreenTrackingService,UserTrackingService,AuthService
+    ScreenTrackingService,UserTrackingService,AuthService,
   ],
   exports:[
   ]

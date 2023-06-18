@@ -1,9 +1,17 @@
+:host{
+    background: black;
+}
+.notSidebar{
+    height: 108px;
+    background: black;
+}
 .container{
+    padding-top: 40px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     height: 100%;
     background: black;
+    overflow: auto;
     h1{
         font-size: 40px;
         text-align: center;
@@ -13,6 +21,7 @@
     .containerTable{
         display: flex;
         justify-content: center;
+
         table{
             margin-top: 50px;
             width: 1000px;

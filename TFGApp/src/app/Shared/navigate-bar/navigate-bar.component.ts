@@ -16,5 +16,7 @@ export class NavigateBarComponent {
   goToGestor(){
     this._router.navigate([CONSTANTS.ROUTES.MENU.HOME])
   }
-  goToSocial(){}
+  goToSocial(){
+    this._router.navigate([CONSTANTS.ROUTES.EVENTS.EVENTS_MENU])
+  }
 }

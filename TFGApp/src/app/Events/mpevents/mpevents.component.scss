@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    .friendsSidebar{
+        background-color: coral;
+        height: 100%;
+    }
+}

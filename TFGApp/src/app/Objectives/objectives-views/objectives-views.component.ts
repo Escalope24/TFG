@@ -18,7 +18,6 @@ export class ObjectivesViewsComponent implements OnInit{
   allObjectives:Objectives[]=[];
   monthBills:any[]=[];
   objectives:ObjectivesData[]=[]
-  monthHeaders:any={month:[]};
   chart:ApexChart={
     type:'radialBar'
   }
@@ -60,6 +59,7 @@ export class ObjectivesViewsComponent implements OnInit{
       stops: [0, 50, 53, 91]
     }
   }
+  showNavigationBar:boolean=false;
   constructor(private auth:AuthService, private _objectivesService:ObjectivesService, private _billsService:HomeService){}
 
   ngOnInit(): void {
@@ -119,13 +119,13 @@ export class ObjectivesViewsComponent implements OnInit{
         })
       })
       console.log(this.objectives)
-      this.getAllSumOfBills();
   }
-  getAllSumOfBills(){
+  showNavigation(){
+    this.showNavigationBar=true;
 
   }
-  getAllSumOfSaves(){
-
+  leaveNavigation(){
+    this.showNavigationBar=false
   }
 
 }

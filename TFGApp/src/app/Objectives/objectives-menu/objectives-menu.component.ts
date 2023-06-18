@@ -16,5 +16,8 @@ export class ObjectivesMenuComponent {
   goToObjectivesList(){
     this._router.navigate([CONSTANTS.ROUTES.OBJECTIVES.OBJECTIVE_LIST])
   }
+  goToActual(){
+    this._router.navigate([CONSTANTS.ROUTES.OBJECTIVES.ACTUAL])
+  }
 
 }

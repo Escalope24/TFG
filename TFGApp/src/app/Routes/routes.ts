@@ -25,13 +25,13 @@ export const CONSTANTS=Object.freeze({
             OBJECTIVE:'menu/objective',
             OBJECTIVE_NEW:'menu/objective/new',
             OBJECTIVE_LIST:'menu/objective/list',
-            PROGRESS:'menu/objective/progress',
+            ACTUAL:'menu/objective/actual',
             HISTORICAL:'menu/objective/historical',
         },
         EVENTS:{
-            EVENTS_MENU:'/events',
-            SOCIAL:'/social',
-            CREATE_EVENT:'/createEvent',
+            EVENTS_MENU:'events/menu',
+            SOCIAL:'events/social',
+            CREATE_EVENT:'events/createEvent',
             
         },
         SHARED:{

@@ -9,13 +9,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { HomeService } from '../home/home.service';
+import { ActualComponent } from './actual/actual.component';
+import { DatePipe } from '../Pipes/date-pipe.pipe';
 
 
 @NgModule({
   declarations: [
     ObjectivesInsertComponent,
     ObjectivesViewsComponent,
-    ObjectivesMenuComponent
+    ObjectivesMenuComponent,
+    ActualComponent,
   ],
   imports: [
     CommonModule,
