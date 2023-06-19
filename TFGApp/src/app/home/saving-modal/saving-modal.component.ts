@@ -66,8 +66,11 @@ export class SavingModalComponent implements OnInit {
     }
     fillForm(){
       this.insertSave=this.formReg.value;
-      if(this.insertSave){
+      if(this.insertSave && this.formReg.value['date']!==null && this.formReg.value['type']!==null && this.formReg.value['value']!==null){
         this._homeService.insertSaves(this.insertSave);
+      }
+      else{
+        alert('Datos del formulario incompletos')
       }
       this.formReg.reset();
     }

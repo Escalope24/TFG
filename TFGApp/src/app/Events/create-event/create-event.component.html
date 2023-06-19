@@ -27,7 +27,7 @@
         <div class="createEvent">
             <form  [formGroup]="formReg" (ngSubmit)="createEvent()">
                 <input type="text" formControlName="name" placeholder="Nombre del evento">
-                <input type="date" formControlName="date" >
+                <input type="date" formControlName="date" [min]="dateMin">
                 <input type="number" formControlName="value" placeholder="Valor del evento">
                 <button mat-raised-button color="primary" type="submit">Crear evento</button>
             </form>

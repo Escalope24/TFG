@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { SocialService } from '../social.service';
 import { AuthService } from 'src/app/Auth/auth.service';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
@@ -8,7 +8,7 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.scss']
 })
-export class CreateEventComponent {
+export class CreateEventComponent implements OnInit{
   formReg:FormGroup=new FormGroup({
     name:new FormControl(),
     participantes:new FormControl( FormArray),
@@ -20,10 +20,22 @@ export class CreateEventComponent {
   agregarParticipantes:FormGroup=new FormGroup({
     participante:new FormControl()
   })
+  dateMin:string=''
   participantes:string[]=[]
   showNavigationBar:boolean=false;
   constructor(private _socialService:SocialService, private _authService:AuthService){}
 
+  ngOnInit(): void {
+    const year=new Date().getFullYear()
+    const month=new Date().getMonth()+1
+    const date=new Date().getDate()+1;
+      if(month<10){
+        this.dateMin=year+'-'+0+month+'-'+date
+      }
+      else{
+        this.dateMin=year+'-'+month+'-'+date
+      }
+  }
   addParticipante(){
     this.added=false
     let participante=this.agregarParticipantes.value;

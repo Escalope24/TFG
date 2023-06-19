@@ -61,7 +61,7 @@ export class BillsModalComponent  implements OnInit{
   });
   }
   insertBill(){
-    if(this.currentUser!==null){
+    if(this.currentUser!==null && this.formReg.value['fecha']!==null  && this.formReg.value['tipo']!==null  && this.formReg.value['cantidad']!==null){
       this.dataToInsert=this.formReg.value;
       this.dataToInsert.idUser=this.currentUser;
       this.dataToInsert.cantidad=this.dataToInsert.cantidad
@@ -69,6 +69,9 @@ export class BillsModalComponent  implements OnInit{
       this.loadData=false
       this.getAllBills();
       this.formReg.reset();
+    }
+    else{
+      alert('Datos del formulario incompletos')
     }
   }
   getAllBills(){

@@ -18,10 +18,22 @@ export class MPEventsComponent implements OnInit {
   eventsUser:Events[]=[];
   showNavigationBar:boolean=false;
   ngOnInit(): void {
+    const year=new Date().getFullYear()
+    const month=new Date().getMonth()+1
+    const date=new Date().getDate();
     this._socialService.getEvents().subscribe((events:Events[])=>{
       events.forEach((event)=>{
         if(event.idUser===this._authService.getUserId()){
-          this.eventsUser.push(event);
+          let dateEvent=new Date(event.date)
+          let minDate
+          if(month<10){
+            minDate=new Date(year+'-'+0+month+'-'+date)
+          }else{
+            minDate=new Date(year+'-'+month+'-'+date)
+          }
+          if(dateEvent>minDate){
+            this.eventsUser.push(event);
+          }
         }
       })
     })
