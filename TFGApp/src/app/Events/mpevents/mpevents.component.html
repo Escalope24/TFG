@@ -1,5 +1,10 @@
-<div class="container">
-
+<div class="container" *ngIf="eventsUser.length>0">
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+    
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        <app-navigate-bar></app-navigate-bar>
+    </div>
     <h1>Tus eventos</h1>
     <div class="tableContainer">
         <table>
@@ -16,5 +21,19 @@
                 <td class="field">{{event.value}}</td>
             </tr>
         </table>
+    </div>
+</div>
+<div class="container" *ngIf="eventsUser.length==0">
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+    
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        <app-navigate-bar></app-navigate-bar>
+    </div>
+    <h1>No has creado ningun evento</h1>
+    <div class="buttonContainer">
+        <button mat-raised-button color="warn" (click)="goToCreateEvent()">
+            Ir a crear evento
+        </button>
     </div>
 </div>

@@ -3,90 +3,103 @@
 
 }
 .container{
-    display: flex;
-    justify-content: space-between;
     background: black;
     height: 100%;
-    .addSave{
+    .notSidebar{
+        height: 26px;
+        background: black;
+        margin-bottom: 10px;
+    }
+    .sidebar{
+        height: 26px;
+        margin-bottom: 10px;
+
+    }
+    .containerData{
         display: flex;
-        flex-direction: column;
-        h2{
-            font-size: 16px;
-            color: white;
-        }
-        form{
+        justify-content: space-between;
+        .addSave{
             display: flex;
             flex-direction: column;
-            select{
-                width: 176px;
-                height: 20px;
+            h2{
+                font-size: 16px;
                 color: white;
-                padding-left: 20px;
-                font-size: 12px;
-                background: coral;
-                border-radius: 16px;
             }
-            .endInput{
+            form{
                 display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                input{
-                    margin-top: 10px;
-                    width: 150px;
+                flex-direction: column;
+                select{
+                    width: 176px;
                     height: 20px;
                     color: white;
                     padding-left: 20px;
-                    font-size: 20px;
+                    font-size: 12px;
                     background: coral;
                     border-radius: 16px;
                 }
-                button{
-                    width: 100px;
+                .endInput{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    input{
+                        margin-top: 10px;
+                        width: 150px;
+                        height: 20px;
+                        color: white;
+                        padding-left: 20px;
+                        font-size: 20px;
+                        background: coral;
+                        border-radius: 16px;
+                    }
+                    button{
+                        width: 100px;
+                    }
+                }
+            }
+            .historical{
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                span{
+                    color: coral;
                 }
             }
         }
-        .historical{
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            span{
-                color: coral;
+        .mainGraphic{
+            h2{
+                text-align: center;
+                color: white;
+            }
+            .graphic{
+                margin-top: 40px;
+    
+                border-radius: 8px;
             }
         }
-    }
-    .mainGraphic{
-        h2{
-            color: white;
-        }
-        .graphic{
-            margin-top: 40px;
-
-            border-radius: 8px;
-        }
-    }
-    .participantesContainer{
-        overflow-y: auto;
-        table{
-            .row{
-                .header{
-                    height: 50px;
-                    background: coral;
-                    color: white;
-                    border-radius: 5px;
-                }
-                .field{
-                    background: #f5f5f5;
-                    border-bottom: 1px solid #e6e6e6;
-                    align-items: center;
-                    padding: 0 20px;
-                }
-                .fieldChart{
-                    background: #f5f5f5;
-                    border-bottom: 1px solid #e6e6e6;
-                    align-items: center;
-                    width: 180px;
-                    height: 100px;
+        .participantesContainer{
+            overflow-y: auto;
+            table{
+                .row{
+                    .header{
+                        height: 50px;
+                        background: coral;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                    .field{
+                        background: #f5f5f5;
+                        border-bottom: 1px solid #e6e6e6;
+                        align-items: center;
+                        padding: 0 20px;
+                    }
+                    .fieldChart{
+                        background: #f5f5f5;
+                        border-bottom: 1px solid #e6e6e6;
+                        align-items: center;
+                        width: 180px;
+                        height: 100px;
+                    }
                 }
             }
         }

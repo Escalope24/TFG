@@ -57,6 +57,9 @@ export class HomeComponent implements OnInit, OnChanges {
         width:'100%',
         height:'100%'
       });
+      this._dialog.afterAllClosed.subscribe(()=>{
+        this.getBills();
+      })  
     }
   }
 
@@ -81,9 +84,18 @@ export class HomeComponent implements OnInit, OnChanges {
   getBills(){
     this.loadGraphic=false
     this._homeService.getBills().subscribe((resp)=>{
+      const year=new Date().getFullYear()
+      const month=new Date().getMonth()+1
       resp.forEach((bill)=>{
-        if(bill.idUser===this._auth.getUserId()){
-          this.fillData(bill)
+        let date=bill.fecha.split('-')
+        if(month<10){
+          if(bill.idUser===this._auth.getUserId() && date[0]===year.toString() && date[1]==='0'+month){
+            this.fillData(bill)
+          }
+        }else{
+          if(bill.idUser===this._auth.getUserId() && date[0]===year.toString() && date[1]===month.toString()){
+            this.fillData(bill)
+          }
         }
       })
       this.loadGraphic=true;

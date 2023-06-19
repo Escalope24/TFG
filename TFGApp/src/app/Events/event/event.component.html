@@ -1,60 +1,68 @@
-<div class="container" *ngIf="loadData">
-    <div class="addSave">
-        <h2>Introduce las aportaciones de los participantes</h2>
-        <form (ngSubmit)="addSaves()" [formGroup]="formReg">
-            <select formControlName="name">
-                <option>Selecciona un participante</option>
-                <option *ngFor="let participante of participantes" value="{{participante}}">
-                    {{participante}}
-                </option>
-            </select>
-            <div class="endInput">                
-                <input type="number" formControlName="value">
-                <button mat-raised-button color="primary" type="submit">Añadir</button>
+<div class="container">
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+    
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        <app-navigate-bar></app-navigate-bar>
+    </div>
+    <div class="containerData" *ngIf="loadData">
+        <div class="addSave">
+            <h2>Introduce las aportaciones de los participantes</h2>
+            <form (ngSubmit)="addSaves()" [formGroup]="formReg">
+                <select formControlName="name">
+                    <option>Selecciona un participante</option>
+                    <option *ngFor="let participante of participantes" value="{{participante}}">
+                        {{participante}}
+                    </option>
+                </select>
+                <div class="endInput">                
+                    <input type="number" formControlName="value">
+                    <button mat-raised-button color="primary" type="submit">Añadir</button>
+                </div>
+            </form>
+            <div class="historical">
+                <span *ngFor="let aportacion of aportaciones">
+                    El usuario {{aportacion.name}} aportó {{aportacion.value}} €
+                </span>
             </div>
-        </form>
-        <div class="historical">
-            <span *ngFor="let aportacion of aportaciones">
-                El usuario {{aportacion.name}} aportó {{aportacion.value}} €
-            </span>
         </div>
-    </div>
-    <div class="mainGraphic">
-        <h2>
-            El total del coste del {{event.name}} es {{event.value}}€
-        </h2>
-        <div class="graphic">
-            <apx-chart
-            [series]="series"
-            [chart]="chart"
-            [labels]="labels"
-            [responsive]="responsive">
-            </apx-chart>
+        <div class="mainGraphic">
+            <h2>
+                El total del coste del {{event.name}} es {{event.value}}€
+            </h2>
+            <div class="graphic">
+                <apx-chart
+                [series]="series"
+                [chart]="chart"
+                [labels]="labels"
+                [responsive]="responsive">
+                </apx-chart>
+            </div>
         </div>
-    </div>
-    <div class="participantesContainer">
-        <table>
-            <tr class="row">
-                <th class="header">Participante</th>
-                <th class="header">Aportado</th>
-                <th class="header">Total</th>
-                <th class="header">Progreso</th>
-            </tr>
-            <tr class="row" *ngFor="let aportacion of aportaciones">
-                <td class="field">{{aportacion.name}}</td>
-                <td class="field">{{aportacion.value}}</td>
-                <td class="field">{{aportacion.total}}</td>
-                <td class="fieldChart">
-                    <apx-chart
-                    [series]="[aportacion.percent]"
-                    [chart]="chart2"
-                    [plotOptions]="plotOptions"
-                    [fill]="fill"
-                    >
-
-                    </apx-chart>
-                </td>
-            </tr>
-        </table>
+        <div class="participantesContainer">
+            <table>
+                <tr class="row">
+                    <th class="header">Participante</th>
+                    <th class="header">Aportado</th>
+                    <th class="header">Total</th>
+                    <th class="header">Progreso</th>
+                </tr>
+                <tr class="row" *ngFor="let aportacion of aportaciones">
+                    <td class="field">{{aportacion.name}}</td>
+                    <td class="field">{{aportacion.value}}</td>
+                    <td class="field">{{aportacion.total}}</td>
+                    <td class="fieldChart">
+                        <apx-chart
+                        [series]="[aportacion.percent]"
+                        [chart]="chart2"
+                        [plotOptions]="plotOptions"
+                        [fill]="fill"
+                        >
+    
+                        </apx-chart>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

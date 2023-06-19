@@ -21,6 +21,7 @@ export class CreateEventComponent {
     participante:new FormControl()
   })
   participantes:string[]=[]
+  showNavigationBar:boolean=false;
   constructor(private _socialService:SocialService, private _authService:AuthService){}
 
   addParticipante(){
@@ -45,6 +46,13 @@ export class CreateEventComponent {
     let value=this.participantes.indexOf(participante)
     this.participantes.splice(value)
     console.log(this.participantes)
+  }
+  showNavigation(){
+    this.showNavigationBar=true;
+
+  }
+  leaveNavigation(){
+    this.showNavigationBar=false
   }
 
 }

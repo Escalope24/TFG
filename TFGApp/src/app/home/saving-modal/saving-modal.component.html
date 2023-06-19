@@ -4,7 +4,7 @@
             <h1>Introduce tus ingresos!</h1>
         </div>
         <form [formGroup]="formReg" class="form" (ngSubmit)="fillForm()">
-            <input type="date" formControlName="date" class="textInput" [placeholder]="'Fecha'">
+            <input type="date" formControlName="date" class="textInput" [placeholder]="'Fecha'" [min]="minDate" [max]="maxDate">
             <select inputmode="true" formControlName="type">
                 <option *ngFor="let option of types" value="{{option.type}}">
                     {{option.type}}

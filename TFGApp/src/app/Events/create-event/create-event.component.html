@@ -1,27 +1,36 @@
 <div class="container">
-    <div class="addParticipante">
-        <form [formGroup]="agregarParticipantes" (ngSubmit)="addParticipante()">
-            <input type="text" formControlName="participante">
-            <button mat-raised-button color="primary" type="submit">Añadir</button>
-        </form>
-        <div class="participantes">
-            <h1>Participantes</h1>
-            <div class="participanteContainer" *ngIf="added">
-                <ul>
-                    <li *ngFor="let participante of participantes"> 
-                        <span>{{participante}}</span>
-                        <button mat-raised-button color="primary" type="submit" (click)="eliminarUsuario(participante)">Eliminar</button>
-                    </li>
-                </ul>
+
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+    
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        <app-navigate-bar></app-navigate-bar>
+    </div>
+    <div class="containerRegister">
+        <div class="addParticipante">
+            <form [formGroup]="agregarParticipantes" (ngSubmit)="addParticipante()">
+                <input type="text" formControlName="participante">
+                <button mat-raised-button color="primary" type="submit">Añadir</button>
+            </form>
+            <div class="participantes">
+                <h1>Participantes</h1>
+                <div class="participanteContainer" *ngIf="added">
+                    <ul>
+                        <li *ngFor="let participante of participantes"> 
+                            <span>{{participante}}</span>
+                            <button mat-raised-button color="primary" type="submit" (click)="eliminarUsuario(participante)">Eliminar</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="createEvent">
-        <form  [formGroup]="formReg" (ngSubmit)="createEvent()">
-            <input type="text" formControlName="name" placeholder="Nombre del evento">
-            <input type="date" formControlName="date" >
-            <input type="number" formControlName="value" placeholder="Valor del evento">
-            <button mat-raised-button color="primary" type="submit">Crear evento</button>
-        </form>
+        <div class="createEvent">
+            <form  [formGroup]="formReg" (ngSubmit)="createEvent()">
+                <input type="text" formControlName="name" placeholder="Nombre del evento">
+                <input type="date" formControlName="date" >
+                <input type="number" formControlName="value" placeholder="Valor del evento">
+                <button mat-raised-button color="primary" type="submit">Crear evento</button>
+            </form>
+        </div>
     </div>
 </div>

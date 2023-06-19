@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '../Pipes/date-pipe.pipe';
 import { SavingModalComponent } from './saving-modal/saving-modal.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // TODO RECORDAR QUE LA INTRODUCCION A LA HOME YA DEBE DE SER CON UNA CUENTA LOGEADA
 @NgModule({
@@ -41,6 +41,7 @@ import { SavingModalComponent } from './saving-modal/saving-modal.component';
     ReactiveFormsModule,
     MatIconModule,
     FormsModule,
+    MatProgressSpinnerModule 
   ],
   providers:[
     UserServiceService,

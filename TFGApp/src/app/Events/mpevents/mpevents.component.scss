@@ -1,4 +1,11 @@
 .container{
+    .notSidebar{
+        height: 20px;
+        background: black;
+    }
+    .sidebar{
+        height: 20px;
+    }
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -30,5 +37,10 @@
                 }
             }
         }
+    }
+    .buttonContainer{
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
     }
 }

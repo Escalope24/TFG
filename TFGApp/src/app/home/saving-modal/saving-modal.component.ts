@@ -17,6 +17,8 @@ export class SavingModalComponent implements OnInit {
     value:new FormControl(),
     idUser:new FormControl(this._auth.getUserId())
   });
+  minDate:string=''
+  maxDate:string=''
   saves:Saves[]=[];
   insertSave?:Saves;
   types:TypeOfBill[]=[];
@@ -27,6 +29,17 @@ export class SavingModalComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
+      const year=new Date().getFullYear()
+    const month=new Date().getMonth()+1
+    const date=new Date().getDate();
+    if(month<10){
+
+      this.minDate=year+'-'+0+month+'-'+date
+      this.maxDate=year+'-'+0+month+'-'+this.getLastDayOfMonth(new Date())
+    }else{
+      this.minDate=year+'-'+month+'-'+date
+      this.maxDate=year+'-'+month+'-'+this.getLastDayOfMonth(new Date())
+    }
         this._homeService.getSavesTypes().subscribe((resp)=>{
           this.types=resp;
         })
@@ -34,10 +47,19 @@ export class SavingModalComponent implements OnInit {
     }
     getAllSaves(){
       this._homeService.getSaves().subscribe((resp:Saves[])=>{
-        this.saves=[]
+        this.saves=[];
+        const year=new Date().getFullYear()
+        const month=new Date().getMonth()+1
         resp.forEach((save)=>{
-          if(save.idUser===this._auth.getUserId()){
-            this.saves.push(save);
+          let date=save.date.split('-')
+          if(month<10){
+            if(save.idUser===this._auth.getUserId() && date[0]===year.toString() && date[1]==='0'+month){
+              this.saves.push(save)
+            }
+          }else{
+            if(save.idUser===this._auth.getUserId() && date[0]===year.toString() && date[1]===month.toString()){
+              this.saves.push(save)
+            }
           }
         })
       })
@@ -48,5 +70,9 @@ export class SavingModalComponent implements OnInit {
         this._homeService.insertSaves(this.insertSave);
       }
       this.formReg.reset();
+    }
+    getLastDayOfMonth(date: Date): number {
+      const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+      return nextMonth.getDate();
     }
 }

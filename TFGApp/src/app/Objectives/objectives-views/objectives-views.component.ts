@@ -71,6 +71,14 @@ export class ObjectivesViewsComponent implements OnInit{
               if(objectiveData.month===objective.month){
                 let percent=((objectiveData.allSaves-objectiveData.allBills)/objective.value)*100
                   objectiveData.objectives=Math.trunc(percent)
+              }else{
+                let objective2:ObjectivesData={
+                  month:objective.month,
+                  allBills: 0,
+                  allSaves: 0,
+                  objectives: 0
+                }
+                this.objectives.push(objective2)
               }
             })
           }else{
@@ -86,34 +94,19 @@ export class ObjectivesViewsComponent implements OnInit{
         }
       })
     })
-
-      this._billsService.getBills().subscribe((bills:TableModels[])=>{
-        bills.forEach((bill)=>{
-          if(bill.idUser===this.auth.getUserId()){
-            let headers=bill.fecha.split('-');
-            let month=headers[0]+'-'+headers[1]
-            if(this.objectives.length>0){
-              this.objectives.forEach((objective)=>{
-                if(objective.month!==month){
-                  objective.month=month
-                  objective.allBills=bill.cantidad
-                }else{
-                  objective.allBills+=bill.cantidad
-                }
-              })
-            }else{
-              let objective:ObjectivesData={
-                month: month,
-                allBills: 0,
-                allSaves: 0,
-                objectives: 0
-              }
-              this.objectives.push(objective)
+    this._billsService.getBills().subscribe((bills)=>{
+      bills.forEach((bill)=>{
+        if(bill.idUser===this.auth.getUserId()){
+          let headers=bill.fecha.split('-')
+          let month=headers[0]+'-'+headers[1]
+          this.objectives.forEach((objective)=>{
+            if(objective.month===month){
+              objective.allBills=bill.cantidad+objective.allBills;
             }
-            this.allBills.push(bill)
-          }
-        })
+          })
+        }
       })
+    })
       this._billsService.getSaves().subscribe((saves:Saves[])=>{
         saves.forEach((save)=>{
           if(save.idUser===this.auth.getUserId()){
@@ -128,18 +121,15 @@ export class ObjectivesViewsComponent implements OnInit{
           
           }
         })
-      })
-      this._objectivesService.getObjectives().subscribe((objectives:Objectives[])=>{
-        objectives.forEach((objective)=>{
-          if(objective.idUser===this.auth.getUserId()){
-            this.objectives.forEach((objectiveData)=>{
-              if(objectiveData.month===objective.month){
-                let percent=((objectiveData.allSaves-objectiveData.allBills)/objective.value)*100
-                  objectiveData.objectives=Math.trunc(percent)
-              }
-            })
-            this.allObjectives.push(objective)
-          }
+        this.objectives.forEach((obj)=>{
+          this.allObjectives.forEach((objective)=>{
+            if(objective.month===obj.month){
+              obj.objectives=Math.trunc(((obj.allSaves-obj.allBills)/objective.value)*100)
+            }
+            if(obj.objectives<0){
+              obj.objectives=0
+            }
+          })
         })
       })
   }
@@ -150,5 +140,4 @@ export class ObjectivesViewsComponent implements OnInit{
   leaveNavigation(){
     this.showNavigationBar=false
   }
-
 }

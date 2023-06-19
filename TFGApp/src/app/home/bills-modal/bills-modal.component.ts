@@ -18,6 +18,9 @@ export class BillsModalComponent  implements OnInit{
       tipo:'',
     }
   }
+  minDate:string='';
+  maxDate:string=''
+
   tableHeaders:BillsHeaders[]=[];
   formReg:FormGroup=new FormGroup({
     fecha:new FormControl(),
@@ -35,6 +38,17 @@ export class BillsModalComponent  implements OnInit{
   loadData:boolean=false;
   typesOfBills:TypeOfBill[]=[];
   ngOnInit(){
+    const year=new Date().getFullYear()
+    const month=new Date().getMonth()+1
+    const date=new Date().getDate();
+    if(month<10){
+
+      this.minDate=year+'-'+0+month+'-'+date
+      this.maxDate=year+'-'+0+month+'-'+this.getLastDayOfMonth(new Date())
+    }else{
+      this.minDate=year+'-'+month+'-'+date
+      this.maxDate=year+'-'+month+'-'+this.getLastDayOfMonth(new Date())
+    }
     this._homeService.getHeaders().subscribe((resp:BillsHeaders[])=>{
       this.tableHeaders=resp
     });
@@ -59,11 +73,22 @@ export class BillsModalComponent  implements OnInit{
   }
   getAllBills(){
     this.loadData=false;
+    const year=new Date().getFullYear()
+    const month=new Date().getMonth()+1
     this._homeService.getBills().subscribe((resp:TableModels[])=>{
       this.allBills=[]
       resp.forEach((data:TableModels)=>{
-        if(data.idUser===this.currentUser){
-          this.allBills.push(data)
+        let date=data.fecha.split('-')
+        if(month<10){
+          if(data.idUser===this.currentUser && date[0]===year.toString() && date[1]==='0'+month){
+  
+            this.allBills.push(data)
+          }
+        }else{
+          if(data.idUser===this.currentUser && date[0]===year.toString() && date[1]===month.toString()){
+  
+            this.allBills.push(data)
+          }
         }
       })
       this._sortData();
@@ -79,4 +104,9 @@ export class BillsModalComponent  implements OnInit{
     }
     return false
   }
+  getLastDayOfMonth(date: Date): number {
+    const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    return nextMonth.getDate();
+  }
+
 }

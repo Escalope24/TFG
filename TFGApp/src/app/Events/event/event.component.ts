@@ -19,6 +19,7 @@ export class EventComponent implements OnInit{
     value:0
   }
   loadData:boolean=false
+  showNavigationBar:boolean=false;
   labels:string[]=[];
   chart:ApexChart={
     type:'pie'
@@ -169,5 +170,12 @@ export class EventComponent implements OnInit{
     })
     console.log(this.aportaciones)
     this.loadData=true
+  }
+  showNavigation(){
+    this.showNavigationBar=true;
+
+  }
+  leaveNavigation(){
+    this.showNavigationBar=false
   }
 }

@@ -2,84 +2,94 @@
     color: white;
     font-size: 20px;
   }
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  .container{
     height: 100%;
     background: black;
-    .createEvent{
-        margin-top: 40px;
+      .notSidebar{
+          height: 20px;
+          background: black;
+      }
+      .sidebar{
+          height: 26px;
+      }
+    .containerRegister{
         display: flex;
-        justify-content: center;
-        form{
+        flex-direction: row;
+        justify-content: space-around;
+        background: black;
+        .createEvent{
+            margin-top: 40px;
             display: flex;
-            flex-direction: column;
-            input{
-                width: 500px;
-                height: 20px;
-                color: white;
-                padding-left: 20px;
-                font-size: 20px;
-                background: coral;
-                border-radius: 16px;
-                margin-top: 24px;
-            }
-            button{
-                margin-top: 10px;
-            }
-        }
-    }
-    .addParticipante{
-        margin-top: 40px;
-        form{
-            display: flex;
-            flex-direction: row;
-            
-            input{
-                width: 200px;
-                height: 20px;
-                color: white;
-                padding-left: 20px;
-                font-size: 20px;
-                background: coral;
-                border-radius: 16px;
-            }
-            button{
-                margin-left: 10px;
-                width: 100px;
-                height: 26px;
-            }
-        }
-        .participantes{
-            display: flex;
-            flex-direction: column;
             justify-content: center;
-            h1{
-                margin-top: 30px;
-                color: coral;
+            form{
+                display: flex;
+                flex-direction: column;
+                input{
+                    width: 500px;
+                    height: 20px;
+                    color: white;
+                    padding-left: 20px;
+                    font-size: 20px;
+                    background: coral;
+                    border-radius: 16px;
+                    margin-top: 24px;
+                }
+                button{
+                    margin-top: 10px;
+                }
             }
-            .participanteContainer{
+        }
+        .addParticipante{
+            margin-top: 40px;
+            form{
+                display: flex;
+                flex-direction: row;
+                
+                input{
+                    width: 200px;
+                    height: 20px;
+                    color: white;
+                    padding-left: 20px;
+                    font-size: 20px;
+                    background: coral;
+                    border-radius: 16px;
+                }
+                button{
+                    margin-left: 10px;
+                    width: 100px;
+                    height: 26px;
+                }
+            }
+            .participantes{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                ul{
-                    li{
-                        margin-top: 10px;
-                        display: flex;
-                        justify-content: space-between;
-                        color:coral;
-                        button{
-                            height: 24px;
+                h1{
+                    margin-top: 30px;
+                    color: coral;
+                }
+                .participanteContainer{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    ul{
+                        li{
+                            margin-top: 10px;
+                            display: flex;
+                            justify-content: space-between;
+                            color:coral;
+                            button{
+                                height: 24px;
+                            }
                         }
                     }
-                }
-                span{
-                    font-size: 16px;
-                    font-weight: bolder;
-                    color: coral;
+                    span{
+                        font-size: 16px;
+                        font-weight: bolder;
+                        color: coral;
+                    }
                 }
             }
         }
     }
-}
+  }

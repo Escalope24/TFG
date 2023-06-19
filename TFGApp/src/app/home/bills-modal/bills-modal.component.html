@@ -4,7 +4,7 @@
             <h1>Introduce tus gastos!</h1>
         </div>
         <form [formGroup]="formReg" (ngSubmit)="insertBill()" class="form">
-            <input type="date" formControlName="fecha" class="textInput" [placeholder]="'Fecha'">
+            <input type="date" formControlName="fecha" class="textInput" [min]="minDate" [max]="maxDate">
             <select inputmode="true" formControlName="tipo">
                 <option *ngFor="let option of typesOfBills" value="{{option.type}}">
                     {{option.type}}
