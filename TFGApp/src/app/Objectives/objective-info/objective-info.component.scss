@@ -1,0 +1,108 @@
+.container{
+    .notSidebar{
+        height: 26px;
+        margin-bottom: 16px;
+
+    }
+    .sidebar{
+        margin-bottom: 16px;
+    }
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: black;
+    h1{
+        margin-top: 40px;
+        font-size: 40px;
+        text-align: center;
+        color: white;
+        font-family: fantasy ;
+    }
+    .viewsContainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        .progressGraphic{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            .viewMode{
+                display: flex;
+                justify-content: space-around;
+                span{
+                    color: white;
+                }
+            }
+            .containerGraphics{
+                margin-top: 16px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .monthBills{
+            max-height: 500px;
+            overflow-y: auto;
+            table{
+                width:400px;
+                .sticky{
+                    position: sticky;
+                    overflow-y: auto;
+                    .header{
+                        width: 100px;
+                        height: 50px;
+                        background: coral;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                }
+                .row{
+                    .field{
+                        width: 100px;
+                        height: 50px;
+                        background: #f5f5f5;
+                        border-bottom: 1px solid #e6e6e6;
+                        align-items: center;
+                        padding: 0 20px;
+                    }
+                }
+            }
+            h1{
+            }
+        }
+        .monthSaves{
+            overflow-y: auto;
+            max-height: 500px;
+            table{
+                width: 400px;
+                .sticky{
+                    position: sticky;
+                    overflow-y: auto;
+                    .header{
+                        width: 100px;
+                        height: 50px;
+                        background: coral;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                }
+                .row{
+
+                    .field{
+                        width: 100px;
+                        height: 50px;
+                        background: #f5f5f5;
+                        border-bottom: 1px solid #e6e6e6;
+                        align-items: center;
+                        padding: 0 20px;
+                        #chart{
+                            width: 200px;
+                        }
+                    }
+                }
+            }
+            h1{
+                margin-top: 10px;
+            }
+        }
+    }
+}

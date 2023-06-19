@@ -3,4 +3,5 @@ export interface ObjectivesData {
     allBills:number,
     allSaves:number,
     objectives:number,
+    value:number
 }

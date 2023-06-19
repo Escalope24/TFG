@@ -11,6 +11,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { HomeService } from '../home/home.service';
 import { ActualComponent } from './actual/actual.component';
 import { DatePipe } from '../Pipes/date-pipe.pipe';
+import { ObjectiveInfoComponent } from './objective-info/objective-info.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { DatePipe } from '../Pipes/date-pipe.pipe';
     ObjectivesViewsComponent,
     ObjectivesMenuComponent,
     ActualComponent,
+    ObjectiveInfoComponent,
   ],
   imports: [
     CommonModule,

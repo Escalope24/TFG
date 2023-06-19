@@ -19,13 +19,17 @@
                 Total Ingresos
             </th>
             <th class="header">
-                Objetivo
+                Cantidad objetivo
+            </th>
+            <th class="header">
+                Progreso
             </th>
         </tr>
-        <tr class="row" *ngFor="let objetive of objectives">
+        <tr class="row" *ngFor="let objetive of objectives" (click)="goToObjective(objetive)">
             <td class="field">{{objetive.month}}</td>
             <td class="field">{{objetive.allBills}}</td>
             <td class="field">{{objetive.allSaves}}</td>
+            <td class="field">{{objetive.value}}</td>
             <td class="field">
                 <div id="chart">
                     <apx-chart

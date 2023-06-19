@@ -22,7 +22,8 @@ export class ActualComponent implements OnInit{
     allBills:0,
     allSaves:0,
     month:'',
-    objectives:0
+    objectives:0,
+    value:0
   };
   chart:ApexChart={
     type:'radialBar',

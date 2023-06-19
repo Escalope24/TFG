@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="notSidebar" (mouseover)="showNavigation()" *ngIf="!showNavigationBar">
+    
+    </div>
+    <div class="sidebar" (mouseleave)="leaveNavigation()" *ngIf="showNavigationBar">
+        
+        <app-navigate-bar></app-navigate-bar>
+    </div>
+    <div class="viewsContainer">
+
+        <div class="monthBills">
+            <table>
+                <tr class="sticky">
+                    <th class="header">Fecha</th>
+                    <th class="header">Tipo</th>
+                    <th class="header">Cantidad</th>
+                </tr >
+                <tr class="row" *ngFor="let bill of bills">
+                    <td class="field">{{bill.fecha |  date}}</td>
+                    <td class="field">{{bill.tipo}}</td>
+                    <td class="field">{{bill.cantidad}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="progressGraphic">
+            <div class="viewMode">
+                <span (click)="viewProgresBar()">Progreso</span>
+                <span (click)="viewBillsGrap()">Gastos</span>
+                <span (click)="viewSavesGraphic()">Ingresos</span>
+            </div>
+            <div class="containerGraphics">
+                <div class="viewProgress" *ngIf="viewProgress">
+                    <apx-chart
+                    [series]="[objectives.objectives]"
+                    [chart]="chart"
+                    [plotOptions]="plotOptions"
+                    [fill]="fill"
+                    ></apx-chart>
+                </div>
+                <div class="viewSavesGraphic" *ngIf="viewSaveGraphic">
+                    <apx-chart
+                    [series]="series2"
+                    [chart]="chart2"
+                    [labels]="labels2"
+                    [responsive]="responsive"
+                    ></apx-chart>
+                </div>
+                <div class="viewBillsGraphic" *ngIf="viewBillsGraphic">
+                    <apx-chart
+                    [series]="series"
+                    [chart]="chart2"
+                    [labels]="labels"
+                    [responsive]="responsive"
+                    ></apx-chart>
+                </div>
+            </div>
+            
+        </div>
+        <div class="monthSaves">
+            <table>
+                <tr class="sticky">
+                    <th class="header" >Fecha</th>
+                    <th class="header">Tipo</th>
+                    <th class="header">Cantidad</th>
+                </tr>
+                <tr class="row" *ngFor="let save of saves">
+                    <td class="field">{{save.date|date}}</td>
+                    <td class="field">{{save.type}}</td>
+                    <td class="field">{{save.value}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<apx-chart
+    
+>
+
+</apx-chart>

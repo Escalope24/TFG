@@ -6,6 +6,8 @@ import { Saves, TableModels } from 'src/app/home/Models/table-models';
 import { Objectives } from '../Models/models';
 import { ObjectivesData } from '../Models/objectives-data';
 import { ApexChart, ApexFill, ApexPlotOptions } from 'ng-apexcharts';
+import { Router } from '@angular/router';
+import { CONSTANTS } from 'src/app/Routes/routes';
 
 @Component({
   selector: 'app-objectives-views',
@@ -60,7 +62,7 @@ export class ObjectivesViewsComponent implements OnInit{
     }
   }
   showNavigationBar:boolean=false;
-  constructor(private auth:AuthService, private _objectivesService:ObjectivesService, private _billsService:HomeService){}
+  constructor(private auth:AuthService, private _objectivesService:ObjectivesService, private _billsService:HomeService, private _router:Router){}
 
   ngOnInit(): void {
     this._objectivesService.getObjectives().subscribe((objectives:Objectives[])=>{
@@ -76,7 +78,8 @@ export class ObjectivesViewsComponent implements OnInit{
                   month:objective.month,
                   allBills: 0,
                   allSaves: 0,
-                  objectives: 0
+                  objectives: 0,
+                  value:0
                 }
                 this.objectives.push(objective2)
               }
@@ -86,7 +89,8 @@ export class ObjectivesViewsComponent implements OnInit{
               month:objective.month,
               allBills: 0,
               allSaves: 0,
-              objectives: 0
+              objectives: 0,
+              value:0
             }
             this.objectives.push(objective2)
           }
@@ -124,6 +128,7 @@ export class ObjectivesViewsComponent implements OnInit{
         this.objectives.forEach((obj)=>{
           this.allObjectives.forEach((objective)=>{
             if(objective.month===obj.month){
+              obj.value=objective.value
               obj.objectives=Math.trunc(((obj.allSaves-obj.allBills)/objective.value)*100)
             }
             if(obj.objectives<0){
@@ -139,5 +144,8 @@ export class ObjectivesViewsComponent implements OnInit{
   }
   leaveNavigation(){
     this.showNavigationBar=false
+  }
+  goToObjective(objective:ObjectivesData){
+    this._router.navigate([CONSTANTS.ROUTES.OBJECTIVES.HISTORICAL], {queryParams:objective})
   }
 }
