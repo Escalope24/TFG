@@ -1,18 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { GraphicComponent } from './graphic/graphic.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { D3ScaleModule } from '../d3-scale/d3-scale.module';
-import { D3SelectionModule } from '../d3-selection/d3-selection.module';
-import { D3ShapeModule } from '../d3-shape/d3-shape.module';
-import { HeaderComponent } from './header/header.component';
-import { TableComponent } from './table/table.component';
 import {MatTableModule} from '@angular/material/table';
-import { UserdataComponent } from './userdata/userdata.component';
-import { UserInfoComponent } from './user-info/user-info.component';
 import { MatButtonModule } from '@angular/material/button';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
@@ -20,12 +12,7 @@ import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
 
 @NgModule({
   declarations: [
-    SidebarComponent,
     GraphicComponent,
-    HeaderComponent,
-    TableComponent,
-    UserdataComponent,
-    UserInfoComponent,
     NavigateBarComponent
   ],
   imports: [
@@ -33,19 +20,13 @@ import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
     CommonModule,
     RouterModule,
     NgxChartsModule,
-    D3ScaleModule,
-    D3SelectionModule,
-    D3ShapeModule,
     MatTableModule,
     MatButtonModule,
     NgApexchartsModule,
     MatIconModule
   ],
   exports:[
-    SidebarComponent,
-    HeaderComponent,
     GraphicComponent,
-    UserdataComponent,
     NavigateBarComponent
 ],
 })
