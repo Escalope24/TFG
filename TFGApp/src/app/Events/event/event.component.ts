@@ -146,11 +146,9 @@ export class EventComponent implements OnInit{
     this.labels=[]
     this.participantes=[]
     this.aportaciones=[]
-    console.log(this.event)
-    console.log(this.participantes)
+
     this._route.queryParams.subscribe((resp)=>{
       this.event=resp as any
-      console.log(this.event)
       this.participantes=this.event.participantes
       this.event.participantes.forEach((participante)=>{
         let item=localStorage.getItem(participante)
@@ -168,7 +166,6 @@ export class EventComponent implements OnInit{
         }
       })
     })
-    console.log(this.aportaciones)
     this.loadData=true
   }
   showNavigation(){

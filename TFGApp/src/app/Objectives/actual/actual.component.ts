@@ -110,8 +110,7 @@ export class ActualComponent implements OnInit{
           let percent=((this.objectiveData.allSaves-this.objectiveData.allBills)/objective.value)*100
           this.objectiveData.objectives=percent
           this.objectiveData.objectives=Math.trunc(this.objectiveData.objectives);
-          console.log(this.objectiveData)
-          console.log(((this.objectiveData.allSaves-this.objectiveData.allBills)/this.objective.value)*100)
+
         }
       })
     })

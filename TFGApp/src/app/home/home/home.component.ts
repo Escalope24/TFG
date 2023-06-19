@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit, OnChanges {
   types?:string[];
   loadGraphic:boolean=false
   ngOnInit(): void {
-    console.log(this._auth.getUserId())
       this.saveInLocalStorage();
       this.getUserData();
       this.getUser();

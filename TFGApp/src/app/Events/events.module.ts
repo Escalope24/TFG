@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { EventsMenuComponent } from './events-menu/events-menu.component';
-import { FriendsComponent } from './friends/friends.component';
 import { SharedModule } from '../Shared/shared.module';
 import { MPEventsComponent } from './mpevents/mpevents.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,7 +21,6 @@ import { EventComponent } from './event/event.component';
   declarations: [
     CreateEventComponent,
     EventsMenuComponent,
-    FriendsComponent,
     MPEventsComponent,
     EventComponent,
   ],

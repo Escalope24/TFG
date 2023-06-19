@@ -22,7 +22,6 @@ export class MPEventsComponent implements OnInit {
       events.forEach((event)=>{
         if(event.idUser===this._authService.getUserId()){
           this.eventsUser.push(event);
-          console.log(this.eventsUser)
         }
       })
     })

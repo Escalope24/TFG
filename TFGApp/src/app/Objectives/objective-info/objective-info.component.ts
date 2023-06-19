@@ -172,7 +172,6 @@ export class ObjectiveInfoComponent implements OnInit {
           this.series2.push(save.value)
           this.labels2.push(save.name)
         })
-        console.log(this.savesGraphic)
       })
     }
       showNavigation(){

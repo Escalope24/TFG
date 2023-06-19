@@ -40,12 +40,10 @@ export class CreateEventComponent {
     else{
       alert('No se puede crear un evento sin rellenar todos campos o añadir participantes')
     }
-    console.log(this.formReg.value)
   }
   eliminarUsuario(participante:any){
     let value=this.participantes.indexOf(participante)
     this.participantes.splice(value)
-    console.log(this.participantes)
   }
   showNavigation(){
     this.showNavigationBar=true;

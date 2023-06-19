@@ -17,13 +17,4 @@ export class SocialService {
     const billPlace=collection(this._firestore,'events')
     return addDoc(billPlace,event)
   }
-
-  getFriends():Observable<any[]>{
-    const billPlace=collection(this._firestore,'friends')
-    return collectionData(billPlace)  as Observable<any[]>;
-  }
-  addFriend(friend:any){
-    const billPlace=collection(this._firestore,'friends')
-    return addDoc(billPlace,friend)
-  }
 }
