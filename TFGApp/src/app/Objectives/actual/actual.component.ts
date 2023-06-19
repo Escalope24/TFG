@@ -61,12 +61,19 @@ export class ActualComponent implements OnInit{
         name: {
           show: false
         },
-        value: {
-          offsetY: -2,
-          fontSize: "22px"
+
+        total:{
+          color:"ffffff"
+        },
+        value:{
+          color: '#ffffff', // Cambia el color de los números a blanco
+          fontSize: '16px',
+          fontWeight: 'bold',
+          show: true,
+
         }
-      }
-    }
+      },
+    },
   }
   fill:ApexFill={
     type: "gradient",

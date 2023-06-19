@@ -83,6 +83,7 @@ export class HomeComponent implements OnInit, OnChanges {
   getBills(){
     this.loadGraphic=false
     this._homeService.getBills().subscribe((resp)=>{
+      this.bills=[]
       const year=new Date().getFullYear()
       const month=new Date().getMonth()+1
       resp.forEach((bill)=>{
