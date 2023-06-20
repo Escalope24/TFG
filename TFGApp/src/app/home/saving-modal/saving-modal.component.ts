@@ -42,6 +42,9 @@ export class SavingModalComponent implements OnInit {
     }
         this._homeService.getSavesTypes().subscribe((resp)=>{
           this.types=resp;
+          this.types.forEach((type)=>{
+            type.type=type.type.toUpperCase()
+          })
         })
         this.getAllSaves();
     }
@@ -66,13 +69,18 @@ export class SavingModalComponent implements OnInit {
     }
     fillForm(){
       this.insertSave=this.formReg.value;
+      if(this.insertSave){
+        this.insertSave.idUser=this._auth.getUserId();
+      }
       if(this.insertSave && this.formReg.value['date']!==null && this.formReg.value['type']!==null && this.formReg.value['value']!==null){
-        this._homeService.insertSaves(this.insertSave);
+        this._homeService.insertSaves(this.insertSave)
+        this.getAllSaves();
       }
       else{
         alert('Datos del formulario incompletos')
       }
       this.formReg.reset();
+      this.formReg.value['idUser']=this._auth.getUserId()
     }
     getLastDayOfMonth(date: Date): number {
       const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);

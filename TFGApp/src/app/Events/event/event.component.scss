@@ -71,6 +71,24 @@
                 text-align: center;
                 color: white;
             }
+            .buttonsContainer{
+                display: flex;
+                justify-content: center;
+                button{
+                    display: flex;
+                    justify-content: center;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    background: coral;
+                    color: white;
+                    span{
+                        margin-top: 5px;
+                        margin-right: 6px;
+                    }
+                    mat-icon{
+                    }
+                }
+            }
             .graphic{
                 margin-top: 40px;
     
@@ -79,6 +97,7 @@
         }
         .participantesContainer{
             overflow-y: auto;
+            max-height: 550px;
             table{
                 .row{
                     .header{

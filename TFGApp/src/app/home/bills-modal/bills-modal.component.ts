@@ -57,6 +57,9 @@ export class BillsModalComponent  implements OnInit{
   getTypesOfBills(){
     this._homeService.getTypesOfBills().subscribe((resp:TypeOfBill[])=>{
       this.typesOfBills=resp;
+      this.typesOfBills.forEach((type)=>{
+        type.type=type.type.toUpperCase()
+      })
   });
   }
   insertBill(){

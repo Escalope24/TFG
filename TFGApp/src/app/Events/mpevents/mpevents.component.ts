@@ -22,6 +22,7 @@ export class MPEventsComponent implements OnInit {
     const month=new Date().getMonth()+1
     const date=new Date().getDate();
     this._socialService.getEvents().subscribe((events:Events[])=>{
+      this.eventsUser=[]
       events.forEach((event)=>{
         if(event.idUser===this._authService.getUserId()){
           let dateEvent=new Date(event.date)

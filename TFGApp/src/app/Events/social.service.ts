@@ -17,4 +17,13 @@ export class SocialService {
     const billPlace=collection(this._firestore,'events')
     return addDoc(billPlace,event)
   }
+
+  getInputs():Observable<any[]>{
+    const billPlace=collection(this._firestore,'inputs')
+    return collectionData(billPlace)  as Observable<any[]>;
+  }
+  addInputs(input:any){
+    const billPlace=collection(this._firestore,'inputs')
+    return addDoc(billPlace,input)
+  }
 }

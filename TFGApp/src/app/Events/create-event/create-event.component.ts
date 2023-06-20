@@ -47,11 +47,10 @@ export class CreateEventComponent implements OnInit{
   }
   createEvent(){
     if(this.participantes.length>0 && this.formReg.value['name'] && this.formReg.value['value'] && this.formReg.value['date']){
-      this.formReg.value['participantes']=this.participantes
+      this.formReg.value['participantes']=this.participantes;
       this._socialService.createEvent(this.formReg.value).then(()=>{
         this._router.navigate([CONSTANTS.ROUTES.EVENTS.SOCIAL])
       })
-      this.formReg.reset()
     }
     else{
       alert('No se puede crear un evento sin rellenar todos campos o añadir participantes')

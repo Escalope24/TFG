@@ -30,12 +30,31 @@
             <h2>
                 El total del coste del {{event.name}} es {{event.value}}€
             </h2>
-            <div class="graphic">
+            <div class="buttonsContainer">
+                <button (click)="showGraphic()">
+                    <span>Vista de aportaciones </span> <mat-icon>pie_chart</mat-icon>
+                </button>
+                <button (click)="showprogress()">
+                    <span>Vista de progreso global </span><mat-icon>adjust</mat-icon>
+                </button>
+            </div>
+            <div class="graphic" *ngIf="loadGraphic && !showProgress">
                 <apx-chart
                 [series]="series"
                 [chart]="chart"
                 [labels]="labels"
                 [responsive]="responsive">
+                </apx-chart>
+            </div>
+            <div class="graphic" *ngIf="loadGraphic && showProgress">
+                <h2>Progreso total del evento</h2>
+                <apx-chart
+                [series]="[allSum]"
+                [chart]="chart2"
+                [plotOptions]="plotOptions2"
+                [fill]="fill"
+                >
+
                 </apx-chart>
             </div>
         </div>

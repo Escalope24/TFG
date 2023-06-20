@@ -14,6 +14,7 @@ import { Firestore } from '@angular/fire/firestore';
 import { AppModule } from '../app.module';
 import { HomeService } from '../home/home.service';
 import { EventComponent } from './event/event.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -30,6 +31,7 @@ import { EventComponent } from './event/event.component';
     ReactiveFormsModule,
     MatButtonModule,
     NgApexchartsModule,
+    MatIconModule
   ], 
   providers:[
   HomeService,

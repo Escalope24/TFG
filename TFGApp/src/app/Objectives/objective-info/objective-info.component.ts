@@ -113,7 +113,7 @@ export class ObjectiveInfoComponent implements OnInit {
       breakpoint: 3000,
       options: {
         chart: {
-          width: 300
+          width: 400
         },
         legend: {
           position: "right",
@@ -127,7 +127,7 @@ export class ObjectiveInfoComponent implements OnInit {
       breakpoint: 480,
       options: {
         chart: {
-          width: 200
+          width: 400
         },
         legend: {
           position: "bottom"
@@ -141,6 +141,7 @@ export class ObjectiveInfoComponent implements OnInit {
   ngOnInit(): void {
       this._route.queryParams.subscribe((resp)=>{
         this.objectives=resp as any
+        console.log(this.objectives)
       })
       this._homeService.getBills().subscribe((bills:TableModels[])=>{
         bills.forEach((bill)=>{

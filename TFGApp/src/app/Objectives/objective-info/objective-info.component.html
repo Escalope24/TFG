@@ -6,7 +6,7 @@
         
         <app-navigate-bar></app-navigate-bar>
     </div>
-    <div class="viewsContainer">
+    <div class="viewsContainer" *ngIf="objectives.allBills>0 && objectives.allSaves>0">
 
         <div class="monthBills">
             <table>
@@ -71,11 +71,8 @@
             </table>
         </div>
     </div>
+    <div class="viewContainer" *ngIf="objectives.allBills==0 && objectives.allSaves==0">
+        <h1>No hay datos de ingresos ni de gastos</h1>
+    </div>
 
 </div>
-
-<apx-chart
-    
->
-
-</apx-chart>
