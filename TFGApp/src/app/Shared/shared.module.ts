@@ -23,7 +23,6 @@ import { NavigateBarComponent } from './navigate-bar/navigate-bar.component';
     MatTableModule,
     MatButtonModule,
     NgApexchartsModule,
-    MatIconModule
   ],
   exports:[
     GraphicComponent,

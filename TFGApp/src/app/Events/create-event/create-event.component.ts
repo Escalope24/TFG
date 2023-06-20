@@ -2,6 +2,8 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { SocialService } from '../social.service';
 import { AuthService } from 'src/app/Auth/auth.service';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CONSTANTS } from 'src/app/Routes/routes';
 
 @Component({
   selector: 'app-create-event',
@@ -23,7 +25,7 @@ export class CreateEventComponent implements OnInit{
   dateMin:string=''
   participantes:string[]=[]
   showNavigationBar:boolean=false;
-  constructor(private _socialService:SocialService, private _authService:AuthService){}
+  constructor(private _socialService:SocialService, private _authService:AuthService, private _router:Router){}
 
   ngOnInit(): void {
     const year=new Date().getFullYear()
@@ -46,7 +48,9 @@ export class CreateEventComponent implements OnInit{
   createEvent(){
     if(this.participantes.length>0 && this.formReg.value['name'] && this.formReg.value['value'] && this.formReg.value['date']){
       this.formReg.value['participantes']=this.participantes
-      this._socialService.createEvent(this.formReg.value)
+      this._socialService.createEvent(this.formReg.value).then(()=>{
+        this._router.navigate([CONSTANTS.ROUTES.EVENTS.SOCIAL])
+      })
       this.formReg.reset()
     }
     else{

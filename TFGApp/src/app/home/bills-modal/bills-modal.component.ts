@@ -3,7 +3,6 @@ import { HomeService } from '../home.service';
 import { BillsHeaders, TableModels, TypeOfBill } from '../Models/table-models';
 import { FormControl, FormGroup} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { HistoricalBillsComponent } from '../historical-bills/historical-bills.component';
 
 @Component({
   selector: 'app-bills-modal',

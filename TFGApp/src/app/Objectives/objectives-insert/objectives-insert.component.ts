@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/Auth/auth.service';
 import { ObjectivesService } from '../Services/objectives.service';
 import { Objectives } from '../Models/models';
+import { Router } from '@angular/router';
+import { CONSTANTS } from 'src/app/Routes/routes';
 
 @Component({
   selector: 'app-objectives-insert',
@@ -20,7 +22,7 @@ export class ObjectivesInsertComponent implements OnInit{
   allObjectives:Objectives[]=[];
   validator:boolean=true
 
-  constructor(private _auth:AuthService, private _objetiveService:ObjectivesService){}
+  constructor(private _auth:AuthService, private _objetiveService:ObjectivesService, private _router:Router){}
 
   ngOnInit(): void {
     this._objetiveService.getObjectives().subscribe((objectives:Objectives[])=>{
@@ -34,7 +36,9 @@ export class ObjectivesInsertComponent implements OnInit{
   fillForm(){
     const monthRepeat=this.allObjectives.find((objective)=>objective.month==this.formReg.value['month'])
     if(monthRepeat===undefined){
-      this._objetiveService.createObjective(this.formReg.value)
+      this._objetiveService.createObjective(this.formReg.value).then(()=>{
+        this._router.navigate([CONSTANTS.ROUTES.OBJECTIVES.OBJECTIVE_LIST])
+      })
     }
     else{
       alert('No se  puede poner 2 objetivos para un mes')
